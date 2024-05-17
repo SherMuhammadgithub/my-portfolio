@@ -38,7 +38,7 @@ export default function Navbar() {
             <a href="#contact">Contact</a>
           </li>
         </ul>
-        <div className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded-xl hover:pl-10 hover:pr-6 border-2 border-white text-white  dark:text-white dark:hover:text-gray-200 dark:shadow-none group cursor-pointer">
+        <div className="relative  lg:inline-flex  hidden items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded-xl hover:pl-10 hover:pr-6 border-2 border-white text-white  dark:text-white dark:hover:text-gray-200 dark:shadow-none group cursor-pointer">
           <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-[#693dc3] group-hover:h-full"></span>
           <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
             <svg
@@ -76,6 +76,49 @@ export default function Navbar() {
             Contact
           </span>
         </div>
+      </div>
+      <div className="hamburger absolute right-4 top-10 mx-10">
+        <button
+          className="block lg:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            fill="none"
+            className="w-8 h-8 text-white"
+          >
+            <path
+              d="M4 6h16M4 12h16m-7 6h7"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      {/* sm-navbar */}
+
+      <div
+        className={`${
+          isMenuOpen ? "h-96" : "h-0"
+        } lg:hidden flex justify-center items-center text-white w-full  backdrop-blur-xl bg-white/30  transform transition-all duration-500 rounded-md`}
+      >
+        <ul className="text-center space-y-10">
+          <li>
+            <a href="#about">About</a>
+          </li>
+          <li>
+            <a href="#services">Services</a>
+          </li>
+          <li>
+            <a href="#portfolio">Portfolio</a>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
       </div>
     </nav>
   );
