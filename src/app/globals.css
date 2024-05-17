@@ -1,33 +1,89 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+*{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #492a83 #fefefe;
+    
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+#page-intro::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 322px;
+    height: 308px;
+    border-radius: 50%;
+    background: linear-gradient( 260deg, #8b53fd 0%, rgba(115, 67, 210, 0) 100% );
+    -webkit-filter: blur(150px);
+    filter: blur(150px);
+    margin-right: -5%;
+    margin-top: -5%;
+    z-index: 10;
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* setting webkit for HI letter */
+.text-style{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15rem;
+    font-weight: 900;
+    color: #693dc3;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px ;
+    animation: stroke 5s infinite;
+    z-index: -1;
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* i want its size incraeses then decreses */
+@keyframes stroke {
+    0% {
+        font-size: 15rem;
+    }
+    50% {
+        font-size: 18rem;
+    }
+    100% {
+        font-size: 15rem;
+    }
 }
+/* hero-title */
+.hero-title{
+    color: white;
+    background: linear-gradient( to right, #8953f7   0%, #d4c1fc 100% );
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+    .hero-img-box::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient( 260deg, #8b53fd 0%, rgba(115, 67, 210, 0) 100% );
+    -webkit-filter: blur(150px);
+    filter: blur(150px);
+    margin-left: -5%;
+    margin-bottom: -5%;
+    }
+
+
+/* content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: linear-gradient( 260deg, red 0%, rgba(115, 67, 210, 0) 100% );
+  filter: blur(150px);
+  margin-left: -5%;
+  margin-bottom: -5%; */
