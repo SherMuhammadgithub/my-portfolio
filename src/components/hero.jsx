@@ -1,7 +1,8 @@
-import React from "react";
+"use strict";
+import React, { useState } from "react";
 import heroImage from "/public/me.png";
 import Image from "next/image";
-import { AiFillAmazonSquare } from "react-icons/ai";
+import gsap from "gsap";
 import { IoIosContact } from "react-icons/io";
 import { FaFacebook } from "react-icons/fa";
 import { TiSocialLinkedinCircular } from "react-icons/ti";
@@ -20,15 +21,21 @@ export default function Hero() {
       url: "#linkdin",
     },
   ];
+
   return (
-    <main className="h-screen flex flex-col justify-center items-center bg-[#030313fc] text-white relative z-10 px-10 md:px-16 xl:px-24 overflow-hidden">
+    <main
+      className={`hero-section h-screen flex flex-col justify-center items-center bg-[#030313fc] text-white relative z-10 px-10 md:px-16 xl:px-24 overflow-hidden"
+      }`}
+    >
       <span id="page-intro"></span>
       <span textAnchor="middle" className="text-style hidden md:block">
         HI
       </span>
 
       {/* content */}
-      <div className="flex flex-wrap items-center w-full mt-20 ">
+      <div className="flex flex-wrap items-center w-full mt-20"
+      style={{scrollbarWidth: "none"}}
+      >
         <div className="col-1 flex flex-col justify-center items-center w-full md:w-1/2  ">
           <div className="hero-content space-y-6 ">
             <span className="text-xl  lg:text-3xl font-semibold">CodeEz</span>
@@ -59,7 +66,7 @@ export default function Hero() {
               >
                 Contact US &
               </a>
-              <div className="social-media flex items-center space-x-4">
+              <div className="social-media flex items-center space-x-4 overflow-hidden">
                 {socialMediaIcons.map((item, index) => (
                   <a
                     key={index}
