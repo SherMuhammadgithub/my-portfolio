@@ -16,7 +16,7 @@ export default function Navbar() {
   }, []);
 
   const navbarClasses = `fixed top-0 text-white left-0 w-full py-8 px-10 z-50 transition-all duration-300 ease-in-out    ${
-    isScrolled ? "bg-black shadow-lg shadow-indigo-500/50" : "bg-transparent"
+    isScrolled ? "shadow-lg shadow-indigo-500/50" : "bg-transparent"
   }`;
   return (
     <nav className={navbarClasses}>
@@ -51,7 +51,7 @@ export default function Navbar() {
               <path
                 d="M14 5l7 7m0 0l-7 7m7-7H3"
                 strokeWidth="2"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
                 strokeLinecap="round"
               ></path>
             </svg>
@@ -68,7 +68,7 @@ export default function Navbar() {
                 d="M14 5l7 7m0 0l-7 7m7-7H3"
                 strokeWidth="2"
                 strokeLinejoin="round"
-                 strokeLinecap="round"
+                strokeLinecap="round"
               ></path>
             </svg>
           </span>
