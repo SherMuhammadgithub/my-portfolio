@@ -24,7 +24,7 @@ export default function Hero() {
 
   return (
     <main
-      className={`hero-section h-screen flex flex-col justify-center items-center bg-[#030313fc] text-white relative z-10 px-10 md:px-16 xl:px-24 overflow-hidden"
+      className={`hero-section  flex flex-col justify-center items-center bg-[#030313fc] text-white relative z-10 p-8 md:p-16 xl:p-32 overflow-hidden "
       }`}
     >
       <span id="page-intro"></span>
@@ -33,13 +33,11 @@ export default function Hero() {
       </span>
 
       {/* content */}
-      <div className="flex flex-wrap items-center w-full mt-20"
-      style={{scrollbarWidth: "none"}}
-      >
-        <div className="col-1 flex flex-col justify-center items-center w-full md:w-1/2  ">
+      <div className="flex flex-wrap items-center w-full my-20">
+        <div className="col-1 flex flex-col justify-center items-center w-full md:w-1/2 ">
           <div className="hero-content space-y-6 ">
             <span className="text-xl  lg:text-3xl font-semibold">CodeEz</span>
-            <h1 className="hero-title font-bold text-4xl lg:text-7xl overflow-hidden">
+            <h1 className="hero-title font-bold text-4xl lg:text-7xl ">
               Web Developer +
               <br />
               UX Designer
@@ -49,8 +47,8 @@ export default function Hero() {
               <Image
                 src={heroImage}
                 alt="Description of the image"
-                width={300} // Width of the image
-                height={300} // Height of the image
+                width={300}
+                height={300}
                 className="rounded-[38px]  border-2 border-[#693dc3] rotate-[4.29deg] trasnform transition-all duration-300 ease-in-out hover:rotate-0 "
               />
             </div>
@@ -59,19 +57,19 @@ export default function Hero() {
               We break down complex user experinece problems to create
               integritiy focussed solutions that connect billions of people
             </p>
-            <div className="button-box flex flex-col md:flex-row items-start md:items-center space-x-0 md:space-x-4 space-y-4 md:space-y-0">
+            <div className="button-box flex flex-wrap  items-center space-x-4">
               <a
                 href="#"
                 className="border-2 border-[#693dc3] rounded-md bg-transparent text-white py-2 px-4 text-sm md:text-lg hover:bg-[#693dc3]  transition-all duration-300 ease-in-out"
               >
                 Contact US &
               </a>
-              <div className="social-media flex items-center space-x-4 overflow-hidden">
+              <div className="social-media flex items-center space-x-4 ">
                 {socialMediaIcons.map((item, index) => (
                   <a
                     key={index}
                     href={item.url}
-                    className="w-10 aspect-square flex justify-center items-center rounded-full border-2 border-[#693dc3] hover:bg-[#693dc3] transform transition-all duration-300 ease-in-out "
+                    className="w-8 md:w-10 aspect-square flex justify-center items-center rounded-full border-2 border-[#693dc3] hover:bg-[#693dc3] transform transition-all duration-300 ease-in-out "
                   >
                     <item.icon />
                   </a>
@@ -80,13 +78,13 @@ export default function Hero() {
             </div>
           </div>
         </div>
-        <div className="  w-1/2 md:flex justify-center items-center hidden ">
+        <div className="col-2  w-1/2 md:flex justify-center items-center hidden ">
           <div className="hero-img-box p-4">
             <Image
               src={heroImage}
               alt="Description of the image"
-              width={400} // Width of the image
-              height={300} // Height of the image
+              width={400}
+              height={300}
               className="rounded-[38px]  border-2 border-[#693dc3] rotate-[4.29deg] trasnform transition-all duration-300 ease-in-out hover:rotate-0"
             />
           </div>
