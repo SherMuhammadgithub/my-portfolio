@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { VscCallOutgoing } from "react-icons/vsc";
 import { FaFacebook } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";;
+import { FaLinkedin } from "react-icons/fa";
 export default function Hero() {
   const socialMediaIcons = [
     {
@@ -23,7 +23,7 @@ export default function Hero() {
 
   return (
     <main
-      className={`hero-section  flex flex-col justify-center items-center bg-[#030313fc] text-white relative z-10 p-8 md:p-16 xl:p-24 overflow-hidden"
+      className={`hero-section  flex flex-col justify-center items-center bg-[#030313fc] text-white relative z-10 p-8  md:p-16 xl:p-24 overflow-hidden"
       }`}
     >
       <span id="page-intro"></span>
@@ -78,8 +78,8 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className="hero-footer">
-        <div className="social-media-icons flex justify-center items-center space-x-8 my-4 md:my-0">
+      <div className="hero-footer mt-10">
+        <div className="social-media-icons flex justify-center items-center space-x-8 md:my-0">
           {socialMediaIcons.map((icon, index) => {
             const Icon = icon.icon;
             return (
@@ -95,6 +95,32 @@ export default function Hero() {
         </div>
       </div>
       {/* clients sections */}
+      <div className="clients-section grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-24 lg:gap-32 place-items-center mt-10">
+        <div className="col-1 flex items-center space-x-4">
+          <h1 className="text-4xl md:text-5xl font-bold ">03</h1>
+          <p className="text-base md:text-xl">
+            Years of <br /> Experience
+          </p>
+        </div>
+        <div className="col-2 flex items-center space-x-4">
+          <h1 className="text-4xl md:text-5xl font-bold ">10+</h1>
+          <p className="text-base md:text-xl">
+            Projects <br /> Completed
+          </p>
+        </div>
+        <div className="col-3 flex items-center space-x-4">
+          <h1 className="text-4xl md:text-5xl font-bold ">10+</h1>
+          <p className="text-base md:text-xl">
+            Happy <br /> Clients
+          </p>
+        </div>
+        <div className="col-4 flex items-center space-x-4">
+          <h1 className="text-4xl md:text-5xl font-bold ">03</h1>
+          <p className="text-base md:text-xl">
+            Years of <br /> Experience
+          </p>
+        </div>
+      </div>
     </main>
   );
 }
