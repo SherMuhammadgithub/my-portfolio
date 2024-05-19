@@ -7,7 +7,7 @@
     overflow-x: hidden;
     box-sizing: border-box;
     scrollbar-width: none;
-    /* scrollbar-color: #492a83 #fefefe; */
+    scrollbar-color: #492a83 #fefefe;
     
 }
 #page-intro::before{
@@ -24,6 +24,7 @@
     margin-right: -5%;
     margin-top: -5%;
     z-index: 10;
+    overflow: hidden;
 }
 /* setting webkit for HI letter */
 .text-style{
@@ -73,5 +74,6 @@
     filter: blur(150px);
     margin-left: -5%;
     margin-bottom: -5%;
+    overflow: hidden;
     }
 

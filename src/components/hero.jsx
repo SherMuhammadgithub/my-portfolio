@@ -23,8 +23,7 @@ export default function Hero() {
 
   return (
     <main
-      className={`hero-section  flex flex-col justify-center items-center bg-[#030313fc] text-white relative z-10 p-8  md:p-16 xl:p-24 overflow-hidden"
-      }`}
+      className={`hero-section  flex flex-col justify-center items-center bg-[#030313fc] text-white relative z-10 h-auto p-8  md:p-16 xl:p-24 overflow-auto"`}
     >
       <span id="page-intro"></span>
       <span textAnchor="middle" className="text-style hidden md:block">
@@ -32,7 +31,7 @@ export default function Hero() {
       </span>
 
       {/* content */}
-      <div className="flex flex-wrap items-center w-full mt-20">
+      <div className="flex flex-wrap items-center w-full mt-20 overflow-auto">
         <div className="col-1 flex flex-col justify-center items-center w-full md:w-1/2 ">
           <div className="hero-content space-y-6 ">
             <span className="text-xl  lg:text-3xl font-semibold">CodeEz</span>
@@ -95,27 +94,27 @@ export default function Hero() {
         </div>
       </div>
       {/* clients sections */}
-      <div className="clients-section grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-24 lg:gap-32 place-items-center mt-10">
+      <div className="clients-section grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-24 lg:gap-32 place-items-center mt-10">
         <div className="col-1 flex items-center space-x-4">
-          <h1 className="text-4xl md:text-5xl font-bold ">03</h1>
+          <h1 className="text-2xl md:text-5xl font-bold ">03</h1>
           <p className="text-base md:text-xl">
             Years of <br /> Experience
           </p>
         </div>
         <div className="col-2 flex items-center space-x-4">
-          <h1 className="text-4xl md:text-5xl font-bold ">10+</h1>
+          <h1 className="text-2xl md:text-5xl font-bold ">10+</h1>
           <p className="text-base md:text-xl">
             Projects <br /> Completed
           </p>
         </div>
         <div className="col-3 flex items-center space-x-4">
-          <h1 className="text-4xl md:text-5xl font-bold ">10+</h1>
+          <h1 className="text-2xl md:text-5xl font-bold ">10+</h1>
           <p className="text-base md:text-xl">
             Happy <br /> Clients
           </p>
         </div>
         <div className="col-4 flex items-center space-x-4">
-          <h1 className="text-4xl md:text-5xl font-bold ">03</h1>
+          <h1 className="text-2xl md:text-5xl font-bold ">03</h1>
           <p className="text-base md:text-xl">
             Years of <br /> Experience
           </p>
