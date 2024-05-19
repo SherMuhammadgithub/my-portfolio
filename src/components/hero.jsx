@@ -1,15 +1,14 @@
 "use strict";
-import React, { useState } from "react";
 import heroImage from "/public/me.png";
 import Image from "next/image";
-import gsap from "gsap";
-import { IoIosContact } from "react-icons/io";
+
+import { VscCallOutgoing } from "react-icons/vsc";
 import { FaFacebook } from "react-icons/fa";
-import { TiSocialLinkedinCircular } from "react-icons/ti";
+import { FaLinkedin } from "react-icons/fa";;
 export default function Hero() {
   const socialMediaIcons = [
     {
-      icon: IoIosContact,
+      icon: VscCallOutgoing,
       url: "#contact",
     },
     {
@@ -17,7 +16,7 @@ export default function Hero() {
       url: "#facebook",
     },
     {
-      icon: TiSocialLinkedinCircular,
+      icon: FaLinkedin,
       url: "#linkdin",
     },
   ];
@@ -33,7 +32,7 @@ export default function Hero() {
       </span>
 
       {/* content */}
-      <div className="flex flex-wrap items-center w-full my-20">
+      <div className="flex flex-wrap items-center w-full mt-20">
         <div className="col-1 flex flex-col justify-center items-center w-full md:w-1/2 ">
           <div className="hero-content space-y-6 ">
             <span className="text-xl  lg:text-3xl font-semibold">CodeEz</span>
@@ -79,6 +78,23 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      <div className="hero-footer">
+        <div className="social-media-icons flex justify-center items-center space-x-8 my-4 md:my-0">
+          {socialMediaIcons.map((icon, index) => {
+            const Icon = icon.icon;
+            return (
+              <a
+                href={icon.url}
+                key={index}
+                className="text-white text-2xl hover:text-[#693dc3] transition-all duration-300 ease-in-out"
+              >
+                <Icon />
+              </a>
+            );
+          })}
+        </div>
+      </div>
+      {/* clients sections */}
     </main>
   );
 }
