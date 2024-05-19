@@ -15,7 +15,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll); // remove listener when component unmounts
   }, []);
 
-  const navbarClasses = `fixed top-0 text-white left-0 w-full py-8 px-10 z-50 transition-all duration-300 ease-in-out    ${
+  const navbarClasses = `fixed top-0 text-white left-0 w-full p-6 md:p-10 md:px-16 z-50 transition-all duration-300 ease-in-out    ${
     isScrolled ? "shadow-lg shadow-indigo-500/50" : "bg-transparent"
   }`;
   return (
@@ -79,7 +79,7 @@ export default function Navbar() {
           </span>
         </div>
       </div>
-      <div className="hamburger absolute right-4 top-8 rotate-180 mx-10">
+      <div className="hamburger absolute right-4 top-[1.8rem] md:top-10 rotate-180 mx-10">
         <button
           className="block lg:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}

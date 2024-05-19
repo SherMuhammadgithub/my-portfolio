@@ -60,7 +60,7 @@ export default function Hero() {
             <div className="button-box flex flex-wrap  items-center space-x-4">
               <button
                 href="#"
-                className=" w-full md:w-48 border-2 border-[#693dc3] rounded-full bg-transparent text-white py-3  text-sm md:text-lg hover:bg-[#693dc3]  transition-all duration-300 ease-in-out  "
+                className=" w-full md:w-36 border border-[#693dc3]  bg-[#693dc3] rounded-xl   text-white py-3  text-sm md:text-lg hover:bg-transparent  transition-all duration-300 ease-in-out  "
               >
                 Hire me
               </button>
