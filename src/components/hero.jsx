@@ -24,7 +24,7 @@ export default function Hero() {
 
   return (
     <main
-      className={`hero-section  flex flex-col justify-center items-center bg-[#030313fc] text-white relative z-10 p-8 md:p-16 xl:p-32 overflow-hidden "
+      className={`hero-section  flex flex-col justify-center items-center bg-[#030313fc] text-white relative z-10 p-8 md:p-16 xl:p-24 overflow-hidden"
       }`}
     >
       <span id="page-intro"></span>
@@ -37,7 +37,7 @@ export default function Hero() {
         <div className="col-1 flex flex-col justify-center items-center w-full md:w-1/2 ">
           <div className="hero-content space-y-6 ">
             <span className="text-xl  lg:text-3xl font-semibold">CodeEz</span>
-            <h1 className="hero-title font-bold text-4xl lg:text-7xl ">
+            <h1 className="hero-title font-bold text-4xl lg:text-7xl overflow-auto">
               Web Developer +
               <br />
               UX Designer
@@ -58,23 +58,12 @@ export default function Hero() {
               integritiy focussed solutions that connect billions of people
             </p>
             <div className="button-box flex flex-wrap  items-center space-x-4">
-              <a
+              <button
                 href="#"
-                className="border-2 border-[#693dc3] rounded-md bg-transparent text-white py-2 px-4 text-sm md:text-lg hover:bg-[#693dc3]  transition-all duration-300 ease-in-out"
+                className=" w-full md:w-48 border-2 border-[#693dc3] rounded-full bg-transparent text-white py-3  text-sm md:text-lg hover:bg-[#693dc3]  transition-all duration-300 ease-in-out  "
               >
-                Contact US &
-              </a>
-              <div className="social-media flex items-center space-x-4 ">
-                {socialMediaIcons.map((item, index) => (
-                  <a
-                    key={index}
-                    href={item.url}
-                    className="w-8 md:w-10 aspect-square flex justify-center items-center rounded-full border-2 border-[#693dc3] hover:bg-[#693dc3] transform transition-all duration-300 ease-in-out "
-                  >
-                    <item.icon />
-                  </a>
-                ))}
-              </div>
+                Hire me
+              </button>
             </div>
           </div>
         </div>

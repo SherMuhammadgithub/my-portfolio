@@ -5,12 +5,14 @@ export default function SplashScreen() {
   useEffect(() => {
     let tl = gsap.timeline();
     tl.to(".loader", {
-      scale: 4.5,
-      rotate: -360,
+      rotate: 360,
+      scale: 2.5,
     })
       .to(".loader", {
-        scale: 6.5,
-        rotate: 360,
+        // make the loader disappear
+        duration: 1,
+        scale: 3.5,
+        ease: "power2.inOut",
       })
       .to(".screen", {
         delay: 0.5,

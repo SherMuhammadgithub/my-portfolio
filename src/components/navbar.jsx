@@ -22,7 +22,9 @@ export default function Navbar() {
     <nav className={navbarClasses}>
       <div className="flex  items-center justify-between  w-full">
         <div className="heaeder">
-          <h1 className="text-4xl font-bold overflow-hidden ">CodeEz</h1>
+          <h1 className="text-3xl md:text-4xl font-bold overflow-hidden ">
+            CodeEz
+          </h1>
         </div>
         <ul className=" text-base space-x-10 uppercase tracking-widest hidden lg:block">
           <li className="inline-block ">
@@ -77,7 +79,7 @@ export default function Navbar() {
           </span>
         </div>
       </div>
-      <div className="hamburger absolute right-4 top-10 mx-10">
+      <div className="hamburger absolute right-4 top-8 rotate-180 mx-10">
         <button
           className="block lg:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
