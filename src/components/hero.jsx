@@ -187,7 +187,11 @@ export default function Hero() {
           </p>
         </div>
       </div>
-      <canvas ref={canvasRef} id="dotsCanvas"></canvas>
+      <canvas
+        ref={canvasRef}
+        className="  absolute top-0 left-0 z-[-1]"
+        id="dotsCanvas"
+      ></canvas>
     </main>
   );
 }
