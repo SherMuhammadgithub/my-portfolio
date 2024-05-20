@@ -101,7 +101,9 @@ export default function Hero() {
       <div className="flex flex-wrap items-center w-full mt-20 overflow-auto">
         <div className="col-1 flex flex-col justify-center items-center w-full md:w-1/2 ">
           <div className="hero-content space-y-6 ">
-            <span className="text-xl  lg:text-3xl font-semibold">CodeEz</span>
+            <span className="text-2xl  lg:text-4xl font-semibold font-[Playball] tracking-widest">
+              Sher Malik
+            </span>
             <h1 className="hero-title font-bold text-4xl lg:text-7xl overflow-auto">
               Web Developer +
               <br />
