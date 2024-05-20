@@ -5,7 +5,74 @@ import Image from "next/image";
 import { VscCallOutgoing } from "react-icons/vsc";
 import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import { useEffect, useRef } from "react";
 export default function Hero() {
+  // creating canvas animation
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+
+    let animationFrameId;
+    let dots = [];
+
+    const createDot = () => {
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 3 + 1,
+        color: `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${
+          Math.random() * 255
+        }, 0.5)`,
+        speedX: Math.random() * 2 - 1,
+        speedY: Math.random() * 2 - 1,
+      };
+    };
+
+    const drawDot = (dot) => {
+      ctx.beginPath();
+      ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
+      ctx.fillStyle = dot.color;
+      ctx.fill();
+    };
+
+    const updateDots = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      dots.forEach((dot) => {
+        dot.x += dot.speedX;
+        dot.y += dot.speedY;
+
+        if (dot.x > canvas.width || dot.x < 0) {
+          dot.speedX *= -1;
+        }
+        if (dot.y > canvas.height || dot.y < 0) {
+          dot.speedY *= -1;
+        }
+
+        drawDot(dot);
+      });
+
+      animationFrameId = requestAnimationFrame(updateDots);
+    };
+
+    const initializeCanvas = () => {
+      canvas.width = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
+
+      for (let i = 0; i < 100; i++) {
+        dots.push(createDot());
+      }
+
+      updateDots();
+    };
+
+    initializeCanvas();
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
   const socialMediaIcons = [
     {
       icon: VscCallOutgoing,
@@ -120,6 +187,7 @@ export default function Hero() {
           </p>
         </div>
       </div>
+      <canvas ref={canvasRef} id="dotsCanvas"></canvas>
     </main>
   );
 }
