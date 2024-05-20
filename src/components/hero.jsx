@@ -15,6 +15,20 @@ export default function Hero() {
     { count: 9, label: ["my Happy", "Clients"], lineBreak: true },
     { count: 9, label: ["Years of", "Experience"], lineBreak: true },
   ];
+  const socialMediaIcons = [
+    {
+      icon: VscCallOutgoing,
+      url: "#contact",
+    },
+    {
+      icon: FaFacebook,
+      url: "#facebook",
+    },
+    {
+      icon: FaLinkedin,
+      url: "#linkdin",
+    },
+  ];
   // creating canvas animation
   const canvasRef = useRef(null);
   const [counterOn, setCounterOn] = useState(false);
@@ -81,20 +95,6 @@ export default function Hero() {
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
-  const socialMediaIcons = [
-    {
-      icon: VscCallOutgoing,
-      url: "#contact",
-    },
-    {
-      icon: FaFacebook,
-      url: "#facebook",
-    },
-    {
-      icon: FaLinkedin,
-      url: "#linkdin",
-    },
-  ];
 
   return (
     <main
