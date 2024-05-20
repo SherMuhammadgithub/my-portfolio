@@ -1,15 +1,23 @@
 "use strict";
 import heroImage from "/public/me.png";
 import Image from "next/image";
-
+import CountUp from "react-countup";
 import { VscCallOutgoing } from "react-icons/vsc";
 import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import ScrollTrigger from "react-scroll-trigger";
 export default function Hero() {
+  // clients data
+  const clientStatistics = [
+    { count: 3, label: ["Years of", "Experience"], lineBreak: true },
+    { count: 9, label: ["Projects", "Completed"], lineBreak: true },
+    { count: 9, label: ["my Happy", "Clients"], lineBreak: true },
+    { count: 9, label: ["Years of", "Experience"], lineBreak: true },
+  ];
   // creating canvas animation
   const canvasRef = useRef(null);
-
+  const [counterOn, setCounterOn] = useState(false);
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -163,32 +171,40 @@ export default function Hero() {
         </div>
       </div>
       {/* clients sections */}
-      <div className="clients-section grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-24 lg:gap-32 place-items-center mt-10">
-        <div className="col-1 flex items-center space-x-4">
-          <h1 className="text-2xl md:text-5xl font-bold ">03</h1>
-          <p className="text-base md:text-xl">
-            Years of <br /> Experience
-          </p>
+      <ScrollTrigger
+        onEnter={() => setCounterOn(true)}
+        onExit={() => setCounterOn(false)}
+      >
+        <div className="clients-section grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-24 lg:gap-32 place-items-center mt-10">
+          {clientStatistics.map((statistic, index) => (
+            <div
+              key={index}
+              className={`col-${index + 1} flex items-center space-x-4`}
+            >
+              <h1 className="text-2xl md:text-5xl font-bold ">
+                {counterOn && (
+                  <CountUp
+                    start={0}
+                    end={statistic.count}
+                    duration={4}
+                    delay={0}
+                  />
+                )}
+                +
+              </h1>
+              <p className="text-base md:text-xl">
+                {statistic.label.map((line, idx) => (
+                  <a key={idx}>
+                    {line}
+                    {statistic.lineBreak && idx === 0 && <br />}{" "}
+                    {/* Render <br /> if line break is needed after the first line */}
+                  </a>
+                ))}
+              </p>
+            </div>
+          ))}
         </div>
-        <div className="col-2 flex items-center space-x-4">
-          <h1 className="text-2xl md:text-5xl font-bold ">10+</h1>
-          <p className="text-base md:text-xl">
-            Projects <br /> Completed
-          </p>
-        </div>
-        <div className="col-3 flex items-center space-x-4">
-          <h1 className="text-2xl md:text-5xl font-bold ">10+</h1>
-          <p className="text-base md:text-xl">
-            Happy <br /> Clients
-          </p>
-        </div>
-        <div className="col-4 flex items-center space-x-4">
-          <h1 className="text-2xl md:text-5xl font-bold ">03</h1>
-          <p className="text-base md:text-xl">
-            Years of <br /> Experience
-          </p>
-        </div>
-      </div>
+      </ScrollTrigger>
       <canvas
         ref={canvasRef}
         className=" absolute w-[100%] h-[50%] md:h-[100%] left-0 z-[-1]"
