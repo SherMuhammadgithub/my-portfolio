@@ -189,7 +189,7 @@ export default function Hero() {
       </div>
       <canvas
         ref={canvasRef}
-        className="  absolute top-0 left-0 z-[-1]"
+        className=" absolute w-[100%] h-[50%] md:h-[100%] left-0 z-[-1]"
         id="dotsCanvas"
       ></canvas>
     </main>
