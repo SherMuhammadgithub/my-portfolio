@@ -10,10 +10,10 @@ import ScrollTrigger from "react-scroll-trigger";
 export default function Hero() {
   // clients data
   const clientStatistics = [
-    { count: 3, label: ["Years of", "Experience"], lineBreak: true },
-    { count: 9, label: ["Projects", "Completed"], lineBreak: true },
-    { count: 9, label: ["my Happy", "Clients"], lineBreak: true },
-    { count: 9, label: ["Years of", "Experience"], lineBreak: true },
+    { count: "10", label: ["Years of", "Experience"], lineBreak: true },
+    { count: "10", label: ["Projects", "Completed"], lineBreak: true },
+    { count: "10", label: ["Happy", "Clients"], lineBreak: true },
+    { count: "03", label: ["Years of", "Experience"], lineBreak: true },
   ];
   const socialMediaIcons = [
     {
@@ -181,7 +181,7 @@ export default function Hero() {
               key={index}
               className={`col-${index + 1} flex items-center space-x-4`}
             >
-              <h1 className="text-2xl md:text-5xl font-bold ">
+              <h1 className="text-3xl md:text-5xl font-bold ">
                 {counterOn && (
                   <CountUp
                     start={0}
