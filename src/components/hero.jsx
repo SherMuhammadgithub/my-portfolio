@@ -12,7 +12,7 @@ export default function Hero() {
   const clientStatistics = [
     { count: "10", label: ["Years of", "Experience"], lineBreak: true },
     { count: "10", label: ["Projects", "Completed"], lineBreak: true },
-    { count: "10", label: ["Happy", "Clients"], lineBreak: true },
+    { count: "10", label: ["Happy 😊", "Clients"], lineBreak: true },
     { count: "03", label: ["Years of", "Experience"], lineBreak: true },
   ];
   const socialMediaIcons = [
@@ -118,13 +118,13 @@ export default function Hero() {
               UX Designer
             </h1>
             {/* img in smaller screens */}
-            <div className="flex justify-center  border-2 border-[#693dc3] items-center p-2 md:hidden rounded-[38px]   rotate-[4.29deg] trasnform transition-all duration-300 ease-in-out hover:rotate-0">
+            <div className="flex justify-center p-2 ">
               <Image
                 src={heroImage}
                 alt="Description of the image"
-                width={380} // 
+                width={380} //
                 height={200}
-                className=""
+                className="border-2 border-[#693dc3] items-center md:hidden rounded-[38px]   rotate-[4.29deg] trasnform transition-all duration-300 ease-in-out hover:rotate-0"
               />
             </div>
 
@@ -143,13 +143,13 @@ export default function Hero() {
           </div>
         </div>
         <div className="col-2  w-1/2 md:flex  justify-center items-center hidden p-4">
-          <div className=" p-2 border-2 border-[#693dc3] rounded-[38px] rotate-[4.29deg] trasnform transition-all duration-300 ease-in-out hover:rotate-0 z-20">
+          <div className="p-10">
             <Image
               src={heroImage}
               alt="Description of the image"
               width={380}
               height={350}
-              className="z-10"
+              className="border-2 border-[#693dc3] rounded-[38px] rotate-[4.29deg] trasnform transition-all duration-300 ease-in-out hover:rotate-0"
             />
           </div>
         </div>
@@ -181,7 +181,7 @@ export default function Hero() {
               key={index}
               className={`col-${index + 1} flex items-center space-x-4`}
             >
-              <h1 className="text-3xl md:text-5xl font-bold ">
+              <h1 className="text-2xl md:text-5xl font-bold ">
                 {counterOn && (
                   <CountUp
                     start={0}
@@ -192,7 +192,7 @@ export default function Hero() {
                 )}
                 +
               </h1>
-              <p className="text-base md:text-xl">
+              <p className="text-sm md:text-xl">
                 {statistic.label.map((line, idx) => (
                   <a key={idx}>
                     {line}
