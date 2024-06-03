@@ -1,4 +1,4 @@
-"use strict";
+"use client";
 import heroImage from "/public/hero.png";
 import Image from "next/image";
 import CountUp from "react-countup";
@@ -144,7 +144,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="col-2  w-1/2 md:flex  justify-center items-center hidden p-4">
-          <div className="p-10">
+          <div className=" p-10">
             <Image
               src={heroImage}
               alt="Description of the image"
