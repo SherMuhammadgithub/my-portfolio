@@ -7,6 +7,7 @@ import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import ScrollTrigger from "react-scroll-trigger";
+import "./hero.css";
 export default function Hero() {
   // clients data
   const clientStatistics = [
@@ -108,7 +109,7 @@ export default function Hero() {
       {/* content */}
       <div className="flex flex-wrap items-center w-full mt-20 ">
         <div className="col-1 flex flex-col justify-center items-center w-full md:w-1/2 ">
-          <div className="hero-content space-y-6 ">
+          <div className="hero-content space-y-2">
             <span className="text-2xl  lg:text-4xl font-semibold font-[Playball] tracking-widest">
               Sher Malik
             </span>
