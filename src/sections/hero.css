@@ -73,3 +73,24 @@
     margin-bottom: -5%;
     overflow: hidden;
     }
+
+
+  
+/* hero.css */
+.service-item {
+    position: relative;
+    z-index: 2; /* Ensure text is above the hover effect */
+  }
+  
+  .hover-effect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1; /* Ensure this is below the service-item */
+    transition: all 0.5s;
+    background: linear-gradient( 260deg, #291453 0%, #8c56fb 100% );
+    pointer-events: none; /* Ensure hover effect doesn't block interactions */
+  }
+  
+  
+  
