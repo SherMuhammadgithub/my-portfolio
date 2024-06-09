@@ -28,7 +28,7 @@ export default function Navbar() {
           </h1>
         </div>
         <ul className="text-base space-x-10 uppercase tracking-widest hidden lg:block">
-          <li className="inline-block cursor-pointer">
+          <li className="inline-block cursor-pointer ">
             <Link to="home" smooth={true} duration={500}>
               Home
             </Link>
