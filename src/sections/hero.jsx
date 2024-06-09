@@ -6,28 +6,31 @@ import { VscCallOutgoing } from "react-icons/vsc";
 import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
-import ScrollTrigger from "react-scroll-trigger";
+import { FaGithubSquare } from "react-icons/fa";
 import "./hero.css";
 export default function Hero() {
   // clients data
   const clientStatistics = [
-    { count: "10", label: ["Years of", "Experience"], lineBreak: true },
+    { count: "02", label: ["Years of", "Experience"], lineBreak: true },
     { count: "10", label: ["Projects", "Completed"], lineBreak: true },
     { count: "10", label: ["Happy 😊", "Clients"], lineBreak: true },
     { count: "03", label: ["Years of", "Experience"], lineBreak: true },
   ];
   const socialMediaIcons = [
     {
-      icon: VscCallOutgoing,
-      url: "#contact",
+      icon: FaGithubSquare,
+      url: "https://github.com/SherMuhammadgithub",
+      name: "SherMuhammadgithub",
     },
     {
       icon: FaFacebook,
-      url: "#facebook",
+      url: "https://web.facebook.com/profile.php?id=100093945395084",
+      name: "Sher Muhammad ",
     },
     {
       icon: FaLinkedin,
-      url: "#linkdin",
+      url: "https://www.linkedin.com/in/sher-muhammad-448588290/",
+      name: "Sher Muhammad",
     },
   ];
   // creating canvas animation
@@ -133,13 +136,30 @@ export default function Hero() {
               We break down complex user experinece problems to create
               integritiy focussed solutions that connect billions of people
             </p>
-            <div className="button-box flex flex-wrap  items-center space-x-4">
+            <div className="button-box flex justify-center md:justify-start flex-wrap items-center gap-10">
               <button
                 href="#"
                 className=" w-full md:w-36 border border-[#693dc3]  bg-[#693dc3] rounded-xl   text-white py-3  text-sm md:text-lg hover:bg-transparent  transition-all duration-300 ease-in-out  "
               >
-                Hire me
+                Download CV
               </button>
+              <div className="social-media-icons flex  justify-center items-center gap-8 md:my-0">
+                {socialMediaIcons.map((icon, index) => {
+                  const Icon = icon.icon;
+                  return (
+                    <a
+                      key={index}
+                      href={icon.url}
+                      className="group w-10 hover:w-44 h-10 hover:bg-[#030313fc] relative bg-[#693dc3] rounded-md text-neutral-50 duration-700 before:duration-700  font-bold flex justify-start gap-2 items-center p-2 pr-6 before:absolute before:-z-10 before:left-8   before:bg-white before:hover:bg-[#030313fc]"
+                    >
+                      <Icon className="w-6 h-6 shrink-0 fill-neutral-50" />
+                      <span className="origin-left inline-flex duration-100 group-hover:duration-300 group-hover:delay-500 opacity-0 group-hover:opacity-100 border-l-2 px-1 transform scale-x-0 group-hover:scale-x-100 transition-all text-sm">
+                        {icon.name}
+                      </span>
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -155,57 +175,9 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className="hero-footer mt-10">
-        <div className="social-media-icons flex justify-center items-center space-x-8 md:my-0">
-          {socialMediaIcons.map((icon, index) => {
-            const Icon = icon.icon;
-            return (
-              <a
-                href={icon.url}
-                key={index}
-                className="text-white text-2xl hover:text-[#693dc3] transition-all duration-300 ease-in-out"
-              >
-                <Icon />
-              </a>
-            );
-          })}
-        </div>
-      </div>
+      <div className="hero-footer"></div>
       {/* clients sections */}
-      <ScrollTrigger
-        onEnter={() => setCounterOn(true)}
-        onExit={() => setCounterOn(false)}
-      >
-        <div className="clients-section grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-24 lg:gap-32 place-items-center mt-10">
-          {clientStatistics.map((statistic, index) => (
-            <div
-              key={index}
-              className={`col-${index + 1} flex items-center space-x-4`}
-            >
-              <h1 className="text-2xl md:text-5xl font-bold ">
-                {counterOn && (
-                  <CountUp
-                    start={0}
-                    end={statistic.count}
-                    duration={4}
-                    delay={0}
-                  />
-                )}
-                +
-              </h1>
-              <p className="text-sm md:text-xl">
-                {statistic.label.map((line, idx) => (
-                  <a key={idx}>
-                    {line}
-                    {statistic.lineBreak && idx === 0 && <br />}{" "}
-                    {/* Render <br /> if line break is needed after the first line */}
-                  </a>
-                ))}
-              </p>
-            </div>
-          ))}
-        </div>
-      </ScrollTrigger>
+
       <canvas
         ref={canvasRef}
         className=" absolute w-[100%] h-[50%] md:h-[100%] left-0 z-[-1]"
@@ -214,3 +186,40 @@ export default function Hero() {
     </main>
   );
 }
+
+{
+  /* <ScrollTrigger
+onEnter={() => setCounterOn(true)}
+onExit={() => setCounterOn(false)}
+>
+<div className="clients-section grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-24 lg:gap-32 place-items-center mt-10">
+  {clientStatistics.map((statistic, index) => (
+    <div
+      key={index}
+      className={`col-${index + 1} flex items-center space-x-4`}
+    >
+      <h1 className="text-2xl md:text-5xl font-bold ">
+        {counterOn && (
+          <CountUp
+            start={0}
+            end={statistic.count}
+            duration={4}
+            delay={0}
+          />
+        )}
+        +
+      </h1>
+      <p className="text-sm md:text-xl">
+        {statistic.label.map((line, idx) => (
+          <a key={idx}>
+            {line}
+            {statistic.lineBreak && idx === 0 && <br />}{" "}
+            {/* Render <br /> if line break is needed after the first line */
+}
+//           </a>
+//         ))}
+//       </p>
+//     </div>
+//   ))}
+// </div>
+// </ScrollTrigger> */}
