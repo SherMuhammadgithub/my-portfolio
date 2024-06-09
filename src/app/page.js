@@ -4,6 +4,7 @@ import Hero from "@/sections/hero";
 import Navbar from "@/components/navbar";
 import SplashScreen from "@/components/splashScreen";
 import Services from "@/sections/Services";
+import RecentWroks from "@/sections/RecentWroks";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
@@ -23,6 +24,7 @@ export default function Home() {
           <Navbar />
           <Hero />
           <Services />
+          <RecentWroks />
         </>
       )}
     </>

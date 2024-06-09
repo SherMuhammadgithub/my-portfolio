@@ -15,8 +15,8 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll); // remove listener when component unmounts
   }, []);
 
-  const navbarClasses = `fixed top-0 text-white left-0 w-full p-6 md:p-10 md:px-16 z-50 transition-all duration-300 ease-in-out    ${
-    isScrolled ? "shadow-lg shadow-indigo-500/50" : "bg-transparent"
+  const navbarClasses = `fixed top-0 text-white left-0 w-full p-6 md:p-8 md:px-16 z-50 transition-all duration-300 ease-in-out    ${
+    isScrolled ? "bg-black shadow-lg shadow-indigo-500/50" : "bg-transparent"
   }`;
   return (
     <nav className={navbarClasses}>

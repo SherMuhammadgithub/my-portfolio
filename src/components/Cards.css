@@ -1,0 +1,59 @@
+.card-UI-UX {
+    animation: slide-in 0.5s forwards;
+  }
+  
+  .card-App {
+    animation: slide-out 0.5s forwards;
+  }
+  
+  .card-Branding {
+    animation: slide-up 0.5s forwards;
+  }
+  
+  .card-ALL {
+    animation: rotate-in 0.5s forwards;
+  }
+  
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-out {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes slide-up {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes rotate-in {
+    from {
+      transform: rotate(-180deg);
+      opacity: 0;
+    }
+    to {
+      transform: rotate(0);
+      opacity: 1;
+    }
+  }

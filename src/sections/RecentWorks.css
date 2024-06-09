@@ -1,0 +1,89 @@
+.portfolio-section{
+    position: relative;
+    width: full;
+    background-color: #110818;
+}
+.rounded-circle{
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 46%;
+    width: 322px;
+    height: 322px;
+    border-radius: 50%;
+    background: linear-gradient( 260deg, #8b53fd 0%, rgba(115, 67, 210, 0) 100% );
+    -webkit-filter: blur(150px);
+    filter: blur(150px);
+    margin-right: -5%;
+    margin-top: -5%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+.cards{
+    z-index: 20;
+}
+
+/* RecentWorks.css */
+
+.card-UI-UX {
+    animation: slide-in 0.5s forwards;
+  }
+  
+  .card-App {
+    animation: slide-out 0.5s forwards;
+  }
+  
+  .card-Branding {
+    animation: slide-up 0.5s forwards;
+  }
+  
+  .card-ALL {
+    animation: scale-in 0.5s forwards;
+  }
+  
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-out {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-up {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes scale-in {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  

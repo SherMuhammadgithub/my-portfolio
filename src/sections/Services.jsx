@@ -26,7 +26,7 @@ export default function Services() {
   ];
 
   return (
-    <section className="py-4 md:py-32 bg-[#050709] text-white">
+    <section className="py-4 md:py-16 bg-[#050709] text-white">
       <div className="container">
         <div className="row flex flex-wrap my-2">
           <div className="col flex justify-center items-center w-full">
@@ -41,7 +41,7 @@ export default function Services() {
             </div>
           </div>
         </div>
-        <div className="row flex flex-wrap mx-4 lg:mx-56 my-10">
+        <div className="row flex flex-wrap mx-4 2xl:mx-56 my-10 cursor-pointer">
           <div className="col flex justify-center items-center w-full">
             <div className="services-widget relative">
               {servicesData.map((service, index) => (
@@ -66,7 +66,7 @@ export default function Services() {
                 </div>
               ))}
               <div
-                className="hover-effect hidden lg:block md:h-[120px] h-[130px] bg-[#8c56fb] left-0 right-0 z-[1] transition-all duration-500"
+                className="hover-effect hidden lg:block md:h-[120px] h-[130px] bg-[#8c56fb] left-0 right-0 z-[1] transition-all duration-500 rounded-md"
                 style={{ top: `${topCount}px` }}
               ></div>
             </div>
