@@ -1,21 +1,12 @@
 "use client";
 import heroImage from "/public/hero.png";
 import Image from "next/image";
-import CountUp from "react-countup";
-import { VscCallOutgoing } from "react-icons/vsc";
 import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import { FaGithubSquare } from "react-icons/fa";
 import "./hero.css";
 export default function Hero() {
-  // clients data
-  const clientStatistics = [
-    { count: "02", label: ["Years of", "Experience"], lineBreak: true },
-    { count: "10", label: ["Projects", "Completed"], lineBreak: true },
-    { count: "10", label: ["Happy 😊", "Clients"], lineBreak: true },
-    { count: "03", label: ["Years of", "Experience"], lineBreak: true },
-  ];
   const socialMediaIcons = [
     {
       icon: FaGithubSquare,
@@ -35,7 +26,6 @@ export default function Hero() {
   ];
   // creating canvas animation
   const canvasRef = useRef(null);
-  const [counterOn, setCounterOn] = useState(false);
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
