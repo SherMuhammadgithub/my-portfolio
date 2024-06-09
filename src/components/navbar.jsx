@@ -1,5 +1,5 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-scroll";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,17 +28,25 @@ export default function Navbar() {
           </h1>
         </div>
         <ul className="text-base space-x-10 uppercase tracking-widest hidden lg:block">
-          <li className="inline-block">
-            <a href="#about">About</a>
+          <li className="inline-block cursor-pointer">
+            <Link to="home" smooth={true} duration={500}>
+              Home
+            </Link>
           </li>
-          <li className="inline-block">
-            <a href="#services">Services</a>
+          <li className="inline-block cursor-pointer">
+            <Link to="services" smooth={true} duration={500}>
+              Services
+            </Link>
           </li>
-          <li className="inline-block">
-            <a href="#portfolio">Portfolio</a>
+          <li className="inline-block cursor-pointer">
+            <Link to="portfolio" smooth={true} duration={500}>
+              Portfolio
+            </Link>
           </li>
-          <li className="inline-block">
-            <a href="#contact">Contact</a>
+          <li className="inline-block cursor-pointer">
+            <Link to="contact" smooth={true} duration={500}>
+              Contact
+            </Link>
           </li>
         </ul>
         <div className="relative lg:inline-flex hidden items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded-xl hover:pl-10 hover:pr-6 border-2 border-white text-white dark:text-white dark:hover:text-gray-200 dark:shadow-none group cursor-pointer">
@@ -80,12 +88,12 @@ export default function Navbar() {
           </span>
         </div>
       </div>
-      <div className="hamburger absolute right-4 top-[1.8rem] md:top-10 rotate-180 mx-10">
+      <div className="hamburger absolute right-4 top-[1.4rem] md:top-10 rotate-180 mx-10">
         <button
           className="block lg:hidden focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <div className="relative w-8 h-6"> {/* Adjusted height */}
+          <div className="relative w-8 h-6">
             <span
               className={`block absolute h-0.5 w-full bg-white transform transition-all duration-300 ease-in-out ${
                 isMenuOpen ? "rotate-45 top-2.5" : "top-0"
@@ -110,25 +118,45 @@ export default function Navbar() {
         } lg:hidden fixed inset-y-0 left-0 w-64 bg-[#110818] text-white transform transition-transform duration-300 ease-in-out`}
       >
         <ul className="text-center space-y-10 mt-10">
-          <li>
-            <a href="#about" onClick={() => setIsMenuOpen(false)}>
-              About
-            </a>
+          <li className="cursor-pointer">
+            <Link
+              to="home"
+              smooth={true}
+              duration={500}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </Link>
           </li>
-          <li>
-            <a href="#services" onClick={() => setIsMenuOpen(false)}>
+          <li className="cursor-pointer">
+            <Link
+              to="services"
+              smooth={true}
+              duration={500}
+              onClick={() => setIsMenuOpen(false)}
+            >
               Services
-            </a>
+            </Link>
           </li>
-          <li>
-            <a href="#portfolio" onClick={() => setIsMenuOpen(false)}>
+          <li className="cursor-pointer">
+            <Link
+              to="portfolio"
+              smooth={true}
+              duration={500}
+              onClick={() => setIsMenuOpen(false)}
+            >
               Portfolio
-            </a>
+            </Link>
           </li>
-          <li>
-            <a href="#contact" onClick={() => setIsMenuOpen(false)}>
+          <li className="cursor-pointer">
+            <Link
+              to="contact"
+              smooth={true}
+              duration={500}
+              onClick={() => setIsMenuOpen(false)}
+            >
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

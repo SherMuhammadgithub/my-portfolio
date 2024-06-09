@@ -26,7 +26,7 @@ export default function Services() {
   ];
 
   return (
-    <section className="py-4 md:py-16 bg-[#050709] text-white">
+    <section id="services" className="py-4 md:py-16 bg-[#050709] text-white flex justify-center items-center">
       <div className="container">
         <div className="row flex flex-wrap my-2">
           <div className="col flex justify-center items-center w-full">

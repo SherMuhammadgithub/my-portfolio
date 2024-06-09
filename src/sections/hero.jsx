@@ -92,6 +92,7 @@ export default function Hero() {
 
   return (
     <main
+    id="home"
       className={`hero-section  flex flex-col justify-center items-center bg-[#030313fc] text-white relative z-10 h-auto p-8  md:p-16 xl:p-24 "`}
     >
       <span id="page-intro"></span>

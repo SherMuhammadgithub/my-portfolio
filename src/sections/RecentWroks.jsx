@@ -73,7 +73,10 @@ export default function RecentWorks() {
       : cardsData.filter((card) => card.tab === activeTab);
 
   return (
-    <div className="portfolio-section flex justify-center w-full p-10 md:py-16">
+    <div
+      id="portfolio"
+      className="portfolio-section flex justify-center w-full p-10 md:py-16"
+    >
       <span className="rounded-circle"></span>
       <div className="container">
         <div className="row flex flex-wrap my-2">
