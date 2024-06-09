@@ -96,7 +96,7 @@ export default function RecentWorks() {
             <div
               className={`item01 cursor-pointer ${
                 activeTab === "tab1" ? "bg-[#693dc3]" : ""
-              } transition-all duration-500 p-2 rounded-3xl`}
+              } transition-all duration-300 p-2 rounded-3xl`}
               onClick={() => handleSetTab("tab1")}
             >
               ALL
@@ -104,7 +104,7 @@ export default function RecentWorks() {
             <div
               className={`item01 cursor-pointer ${
                 activeTab === "UI/UX" ? "bg-[#693dc3]" : ""
-              } transition-all duration-500 p-2 rounded-3xl`}
+              } transition-all duration-300 p-2 rounded-3xl`}
               onClick={() => handleSetTab("UI/UX")}
             >
               UX/UI
@@ -112,7 +112,7 @@ export default function RecentWorks() {
             <div
               className={`item01 cursor-pointer ${
                 activeTab === "Branding" ? "bg-[#693dc3]" : ""
-              } transition-all duration-500 p-2 rounded-3xl`}
+              } transition-all duration-300 p-2 rounded-3xl`}
               onClick={() => handleSetTab("Branding")}
             >
               Branding
@@ -120,7 +120,7 @@ export default function RecentWorks() {
             <div
               className={`item01 cursor-pointer ${
                 activeTab === "App" ? "bg-[#693dc3]" : ""
-              } transition-all duration-500 p-2 rounded-3xl`}
+              } transition-all duration-300 p-2 rounded-3xl`}
               onClick={() => handleSetTab("App")}
             >
               App

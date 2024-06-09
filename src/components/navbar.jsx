@@ -10,24 +10,25 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 0);
     };
 
-    window.addEventListener("scroll", handleScroll); // listen for scroll events
+    window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll); // remove listener when component unmounts
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navbarClasses = `fixed top-0 text-white left-0 w-full p-6 md:p-8 md:px-16 z-50 transition-all duration-300 ease-in-out    ${
+  const navbarClasses = `fixed top-0 text-white left-0 w-full p-6 md:p-8 md:px-16 z-50 transition-all duration-300 ease-in-out ${
     isScrolled ? "bg-black shadow-lg shadow-indigo-500/50" : "bg-transparent"
   }`;
+
   return (
     <nav className={navbarClasses}>
-      <div className="flex  items-center justify-between  w-full">
-        <div className="heaeder">
-          <h1 className="text-3xl md:text-4xl font-bold overflow-hidden ">
+      <div className="flex items-center justify-between w-full">
+        <div className="header">
+          <h1 className="text-3xl md:text-4xl font-bold overflow-hidden">
             CodeEz
           </h1>
         </div>
-        <ul className=" text-base space-x-10 uppercase tracking-widest hidden lg:block">
-          <li className="inline-block ">
+        <ul className="text-base space-x-10 uppercase tracking-widest hidden lg:block">
+          <li className="inline-block">
             <a href="#about">About</a>
           </li>
           <li className="inline-block">
@@ -40,7 +41,7 @@ export default function Navbar() {
             <a href="#contact">Contact</a>
           </li>
         </ul>
-        <div className="relative  lg:inline-flex  hidden items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded-xl hover:pl-10 hover:pr-6 border-2 border-white text-white  dark:text-white dark:hover:text-gray-200 dark:shadow-none group cursor-pointer">
+        <div className="relative lg:inline-flex hidden items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded-xl hover:pl-10 hover:pr-6 border-2 border-white text-white dark:text-white dark:hover:text-gray-200 dark:shadow-none group cursor-pointer">
           <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-[#693dc3] group-hover:h-full"></span>
           <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
             <svg
@@ -74,51 +75,60 @@ export default function Navbar() {
               ></path>
             </svg>
           </span>
-          <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200 ">
+          <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200">
             Contact
           </span>
         </div>
       </div>
       <div className="hamburger absolute right-4 top-[1.8rem] md:top-10 rotate-180 mx-10">
         <button
-          className="block lg:hidden"
+          className="block lg:hidden focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            fill="none"
-            className="w-8 h-8 text-white"
-          >
-            <path
-              d="M4 6h16M4 12h16m-7 6h7"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></path>
-          </svg>
+          <div className="relative w-8 h-6"> {/* Adjusted height */}
+            <span
+              className={`block absolute h-0.5 w-full bg-white transform transition-all duration-300 ease-in-out ${
+                isMenuOpen ? "rotate-45 top-2.5" : "top-0"
+              }`}
+            ></span>
+            <span
+              className={`block absolute h-0.5 w-full bg-white transition-all duration-300 ease-in-out ${
+                isMenuOpen ? "opacity-0" : "top-2.5"
+              }`}
+            ></span>
+            <span
+              className={`block absolute h-0.5 w-full bg-white transform transition-all duration-300 ease-in-out ${
+                isMenuOpen ? "-rotate-45 top-2.5" : "top-5"
+              }`}
+            ></span>
+          </div>
         </button>
       </div>
-      {/* sm-navbar */}
-
       <div
         className={`${
-          isMenuOpen ? "h-96" : "h-0"
-        } lg:hidden flex justify-center items-center text-white w-full  backdrop-blur-xl bg-white/30  transform transition-all duration-500 rounded-md`}
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        } lg:hidden fixed inset-y-0 left-0 w-64 bg-[#110818] text-white transform transition-transform duration-300 ease-in-out`}
       >
-        <ul className="text-center space-y-10">
+        <ul className="text-center space-y-10 mt-10">
           <li>
-            <a href="#about">About</a>
+            <a href="#about" onClick={() => setIsMenuOpen(false)}>
+              About
+            </a>
           </li>
           <li>
-            <a href="#services">Services</a>
+            <a href="#services" onClick={() => setIsMenuOpen(false)}>
+              Services
+            </a>
           </li>
           <li>
-            <a href="#portfolio">Portfolio</a>
+            <a href="#portfolio" onClick={() => setIsMenuOpen(false)}>
+              Portfolio
+            </a>
           </li>
           <li>
-            <a href="#contact">Contact</a>
+            <a href="#contact" onClick={() => setIsMenuOpen(false)}>
+              Contact
+            </a>
           </li>
         </ul>
       </div>
