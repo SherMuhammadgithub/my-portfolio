@@ -96,9 +96,7 @@ export default function Hero() {
       className={`hero-section  flex flex-col justify-center items-center bg-[#030313fc] text-white relative z-10 h-auto p-8  md:p-16 xl:p-24 "`}
     >
       <span id="page-intro"></span>
-      <span textAnchor="middle" className="text-style hidden md:block">
-        HI
-      </span>
+      <span className="text-style hidden md:block">HI</span>
 
       {/* content */}
       <div className="flex flex-wrap items-center w-full mt-20 ">

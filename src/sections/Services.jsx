@@ -41,7 +41,7 @@ export default function Services() {
             </div>
           </div>
         </div>
-        <div className="row flex flex-wrap mx-4 2xl:mx-56 my-10 cursor-pointer">
+        <div className="row flex flex-wrap mx-4 2xl:mx-32 my-6 cursor-pointer">
           <div className="col flex justify-center items-center w-full">
             <div className="services-widget relative">
               {servicesData.map((service, index) => (
