@@ -1,8 +1,13 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./hero.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Services() {
+  useEffect(() => {
+    AOS.init({ duration: 800 });
+  }, []);
   const [topCount, setTopCount] = useState(0);
   const servicesData = [
     {
@@ -26,8 +31,11 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-4 md:py-16 bg-[#050709] text-white flex justify-center items-center">
-      <div className="container">
+    <section
+      id="services"
+      className="py-4 md:py-16 bg-[#050709] text-white flex justify-center items-center"
+    >
+      <div className="container" data-aos="fade-up">
         <div className="row flex flex-wrap my-2">
           <div className="col flex justify-center items-center w-full">
             <div className="section-header mx-3 w-[100%] max-w-[700px] text-center space-y-6">
@@ -43,7 +51,7 @@ export default function Services() {
         </div>
         <div className="row flex flex-wrap mx-4 2xl:mx-32 my-6 cursor-pointer">
           <div className="col flex justify-center items-center w-full">
-            <div className="services-widget relative">
+            <div className="services-widget relative" >
               {servicesData.map((service, index) => (
                 <div
                   key={service.count}

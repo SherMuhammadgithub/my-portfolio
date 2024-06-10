@@ -3,8 +3,13 @@
 import React, { useState, useEffect } from "react";
 import Card from "@/components/Card";
 import "./RecentWorks.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function RecentWorks() {
+  useEffect(() => {
+    AOS.init({ duration: 800 });
+  }, []);
   const cardsData = [
     {
       imgSrc:
@@ -78,7 +83,7 @@ export default function RecentWorks() {
       className="portfolio-section flex justify-center w-full p-4 md:py-16"
     >
       <span className="rounded-circle"></span>
-      <div className="container">
+      <div className="container" data-aos="fade-up">
         <div className="row flex flex-wrap my-2">
           <div className="col flex justify-center items-center w-full">
             <div className="section-header mx-3 w-[100%] max-w-[700px] text-center space-y-6">

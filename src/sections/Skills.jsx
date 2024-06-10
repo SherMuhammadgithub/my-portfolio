@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 // Reusable SkillCard component
 const SkillCard = ({ skillName, imgSrc, percent }) => {
@@ -11,6 +13,9 @@ const SkillCard = ({ skillName, imgSrc, percent }) => {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+  useEffect(() => {
+    AOS.init({ duration: 800 });
+  }, []);
 
   return (
     <div
@@ -85,7 +90,7 @@ const Skills = () => {
       id="skills"
       className="bg-[#110818] text-white p-4 md:py-16 flex justify-center items-center"
     >
-      <div className="container">
+      <div className="container" data-aos="fade-up">
         <div className="row flex flex-wrap my-2">
           <div className="col flex justify-center items-center w-full">
             <div className="section-header mx-3 w-[100%] max-w-[700px] text-center space-y-6">

@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Resume.css";
 import { GiJeweledChalice } from "react-icons/gi";
 import { SiBookstack } from "react-icons/si";
 import ExperienceCard from "../components/ExperienceCard";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Resume() {
+  useEffect(() => {
+    AOS.init({ duration: 800 });
+  }, []);
   const experiences = [
     {
       year: "2024-present",
@@ -49,7 +54,7 @@ export default function Resume() {
       id="Resume"
       className="flex justify-center items-center p-4 lg:p-16"
     >
-      <div className="container">
+      <div className="container" data-aos="fade-up">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-32  w-full  lg:px-10  xl:px-24">
           <div className="experience-col space-y-6 w-full ">
             <div className="header flex justify-start items-center gap-4 my-6">
