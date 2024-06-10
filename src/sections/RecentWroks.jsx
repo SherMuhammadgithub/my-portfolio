@@ -75,7 +75,7 @@ export default function RecentWorks() {
   return (
     <div
       id="portfolio"
-      className="portfolio-section flex justify-center w-full py-4 md:py-16"
+      className="portfolio-section flex justify-center w-full p-4 md:py-16"
     >
       <span className="rounded-circle"></span>
       <div className="container">
