@@ -1,0 +1,9 @@
+.card {
+    background: #150c1d; /* Initial background color */
+    transition: background 0.3s ease-in-out; /* Add transition effect */
+}
+
+.card:hover {
+    background: linear-gradient(260deg, #291453 0%, #8c56fb 100%);
+}
+    

@@ -1,0 +1,19 @@
+#Resume{
+    background-color: #050709;
+    color: white;
+}
+
+
+/* 
+ */
+
+
+.hero-title{
+    font-weight: 700;
+    color: white;
+    background: linear-gradient( to right, #844ef3 0%, #faf8f8 100% );
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    overflow: hidden;
+}

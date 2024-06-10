@@ -4,7 +4,7 @@ import "./Cards.css";
 export default function Card({ imgSrc, title, description, transitionClass }) {
   return (
     <div
-      className={`bg-white rounded-xl overflow-hidden relative text-center p-4 group items-center flex flex-col max-w-sm hover:shadow-2xl transition-all duration-500 shadow-xl w-full md:w-1/2 h-80 ${transitionClass}`}
+      className={`bg-[#050709] rounded-md overflow-hidden relative text-center p-6 group items-center flex flex-col max-w-sm hover:shadow-2xl transition-all duration-500 shadow-xl w-full md:w-1/2 h-80 ${transitionClass}`}
     >
       {" "}
       <div className="text-gray-500 group-hover:scale-105 transition-all">

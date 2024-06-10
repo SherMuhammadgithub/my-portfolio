@@ -75,7 +75,7 @@ export default function RecentWorks() {
   return (
     <div
       id="portfolio"
-      className="portfolio-section flex justify-center w-full p-10 md:py-16"
+      className="portfolio-section flex justify-center w-full py-4 md:py-16"
     >
       <span className="rounded-circle"></span>
       <div className="container">
@@ -133,7 +133,7 @@ export default function RecentWorks() {
 
         {/* cards section here */}
         <div
-          className={`cards flex justify-center items-center flex-wrap w-full gap-10 z-10 my-10 ${
+          className={`cards flex justify-center items-center flex-wrap w-full gap-10 z-10 my-10 px-4 ${
             isTransitioning
               ? ""
               : activeTab === "tab1"

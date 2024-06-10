@@ -5,6 +5,8 @@ import Navbar from "@/components/navbar";
 import SplashScreen from "@/components/splashScreen";
 import Services from "@/sections/Services";
 import RecentWroks from "@/sections/RecentWroks";
+import Resume from "@/sections/Resume";
+import Skills from "@/sections/Skills";
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
@@ -25,6 +27,8 @@ export default function Home() {
           <Hero />
           <Services />
           <RecentWroks />
+          <Resume />
+          <Skills />
         </>
       )}
     </>

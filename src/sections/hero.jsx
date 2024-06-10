@@ -127,10 +127,10 @@ export default function Hero() {
               We break down complex user experinece problems to create
               integritiy focussed solutions that connect billions of people
             </p>
-            <div className="button-box flex justify-center md:justify-start flex-wrap items-center gap-10">
+            <div className="button-box pt-2 flex justify-center md:justify-start flex-wrap items-center gap-6 md:gap-10">
               <button
                 href="#"
-                className=" w-full md:w-36 border border-[#693dc3]  bg-[#693dc3] rounded-xl   text-white py-3  text-sm md:text-lg hover:bg-transparent  transition-all duration-300 ease-in-out  "
+                className=" w-full md:w-56  border border-[#693dc3]  bg-[#693dc3] rounded-xl   text-white py-3 px-6 text-sm md:text-lg hover:bg-transparent  transition-all duration-300 ease-in-out"
               >
                 Download CV
               </button>

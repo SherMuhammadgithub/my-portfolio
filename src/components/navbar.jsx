@@ -27,7 +27,7 @@ export default function Navbar() {
             CodeEz
           </h1>
         </div>
-        <ul className="text-base space-x-10 uppercase tracking-widest hidden lg:block">
+        <ul className="text-sm space-x-10 uppercase tracking-widest hidden lg:block">
           <li className="inline-block cursor-pointer ">
             <Link to="home" smooth={true} duration={500}>
               Home
@@ -41,6 +41,11 @@ export default function Navbar() {
           <li className="inline-block cursor-pointer">
             <Link to="portfolio" smooth={true} duration={500}>
               Portfolio
+            </Link>
+          </li>
+          <li className="inline-block cursor-pointer">
+            <Link to="Resume" smooth={true} duration={500}>
+              Resume
             </Link>
           </li>
           <li className="inline-block cursor-pointer">
@@ -88,7 +93,7 @@ export default function Navbar() {
           </span>
         </div>
       </div>
-      <div className="hamburger absolute right-4 top-[1.4rem] md:top-10 rotate-180 mx-10">
+      <div className="hamburger absolute right-4 top-[1.9rem] md:top-10 rotate-180 mx-10">
         <button
           className="block lg:hidden focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -146,6 +151,16 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               Portfolio
+            </Link>
+          </li>
+          <li className="cursor-pointer">
+            <Link
+              to="Resume"
+              smooth={true}
+              duration={500}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Resume
             </Link>
           </li>
           <li className="cursor-pointer">
