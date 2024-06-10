@@ -1,7 +1,7 @@
 import React from "react";
 import "./Resume.css";
-import { GiAchievement } from "react-icons/gi";
-import { MdCastForEducation } from "react-icons/md";
+import { GiJeweledChalice } from "react-icons/gi";
+import { SiBookstack } from "react-icons/si";
 import ExperienceCard from "../components/ExperienceCard";
 
 export default function Resume() {
@@ -54,9 +54,9 @@ export default function Resume() {
           <div className="experience-col space-y-6 w-full ">
             <div className="header flex justify-start items-center gap-4 my-6">
               <div className="icon">
-                <GiAchievement className="w-12 h-12 text-[#874ffb]" />
+                <GiJeweledChalice className="w-10 h-10 text-[#874ffb]" />
               </div>
-              <div className="hero-title font-bold text-3xl sm:text-4xl md:text-[45px]">
+              <div className="hero-title font-bold text-3xl md:text-5xl  ">
                 My Experience
               </div>
             </div>
@@ -73,9 +73,9 @@ export default function Resume() {
             {/* Add your education section here */}
             <div className="header flex justify-start items-center gap-4 my-6">
               <div className="icon">
-                <MdCastForEducation className="w-12 h-12 text-[#874ffb]" />
+                <SiBookstack className="w-10 h-10 text-[#874ffb]" />
               </div>
-              <div className="hero-title font-bold text-3xl sm:text-4xl md:text-[45px]">
+              <div className="hero-title font-bold text-3xl  md:text-5xl">
                 My Education
               </div>
             </div>

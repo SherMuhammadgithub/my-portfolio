@@ -1,7 +1,7 @@
 "use client";
 import heroImage from "/public/hero.png";
 import Image from "next/image";
-import { FaFacebook } from "react-icons/fa";
+import { FaFacebookSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import { FaGithubSquare } from "react-icons/fa";
@@ -14,7 +14,7 @@ export default function Hero() {
       name: "SherMuhammadgithub",
     },
     {
-      icon: FaFacebook,
+      icon: FaFacebookSquare,
       url: "https://web.facebook.com/profile.php?id=100093945395084",
       name: "Sher Muhammad ",
     },
@@ -92,7 +92,7 @@ export default function Hero() {
 
   return (
     <main
-    id="home"
+      id="home"
       className={`hero-section  flex flex-col justify-center items-center bg-[#030313fc] text-white relative z-10 h-auto p-8  md:p-16 xl:p-24 "`}
     >
       <span id="page-intro"></span>
@@ -113,7 +113,7 @@ export default function Hero() {
               UX Designer
             </h1>
             {/* img in smaller screens */}
-            <div className="flex justify-center p-2 overflow-hidden">
+            <div className="flex justify-center p-2 ">
               <Image
                 src={heroImage}
                 alt="Description of the image"
@@ -141,7 +141,7 @@ export default function Hero() {
                     <a
                       key={index}
                       href={icon.url}
-                      className="group w-10 hover:w-44 h-10 hover:bg-[#030313fc] relative bg-[#693dc3] rounded-md text-neutral-50 duration-700 before:duration-700  font-bold flex justify-start gap-2 items-center p-2 pr-6 before:absolute before:-z-10 before:left-8   before:bg-white before:hover:bg-[#030313fc] overflow-hidden"
+                      className="group w-10 hover:w-44 h-10 hover:bg-[#030313fc] relative bg-[#693dc3] rounded-md text-neutral-50 duration-700 before:duration-700  font-bold flex justify-start gap-2 items-center p-2 pr-6 before:absolute before:-z-10 before:left-8   before:bg-white before:hover:bg-[#030313fc] "
                     >
                       <Icon className="w-6 h-6 shrink-0 fill-neutral-50" />
                       <span className="origin-left inline-flex duration-100 group-hover:duration-300 group-hover:delay-500 opacity-0 group-hover:opacity-100 border-l-2 px-1 transform scale-x-0 group-hover:scale-x-100 transition-all text-sm">

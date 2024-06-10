@@ -49,8 +49,8 @@ export default function Navbar() {
             </Link>
           </li>
           <li className="inline-block cursor-pointer">
-            <Link to="contact" smooth={true} duration={500}>
-              Contact
+            <Link to="skills" smooth={true} duration={500}>
+            skills
             </Link>
           </li>
         </ul>
@@ -165,12 +165,12 @@ export default function Navbar() {
           </li>
           <li className="cursor-pointer">
             <Link
-              to="contact"
+              to="skills"
               smooth={true}
               duration={500}
               onClick={() => setIsMenuOpen(false)}
             >
-              Contact
+              skills
             </Link>
           </li>
         </ul>
