@@ -111,7 +111,7 @@ export default function Hero() {
               UX Designer
             </h1>
             {/* img in smaller screens */}
-            <div className="flex justify-center p-2 ">
+            <div className="flex justify-center p-2 overflow-hidden">
               <Image
                 src={heroImage}
                 alt="Description of the image"
