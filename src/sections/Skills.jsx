@@ -1,7 +1,10 @@
+"use client";
+import jsImage from "/public/js.png";
+import wpImage from "/public/wp.png";
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import Image from "next/image";
 // Reusable SkillCard component
 const SkillCard = ({ skillName, imgSrc, percent }) => {
   const [isHovered, setIsHovered] = React.useState(false);
@@ -31,8 +34,8 @@ const SkillCard = ({ skillName, imgSrc, percent }) => {
         <div
           className="img"
           style={{ filter: isHovered ? "none" : "grayscale(100%)" }}
-        >
-          <img src={imgSrc} alt="my-skill" className="w-20 h-auto" />
+        > 
+          <Image src={imgSrc} alt="my-skill" className="w-20 h-auto" width={100}  height={100}/>
         </div>
         <div className="percent font-bold tracking-wider text-xl">
           {percent}
@@ -66,8 +69,7 @@ const Skills = () => {
     },
     {
       skillName: "Word Press",
-      imgSrc:
-        "https://themejunction.net/html/gerold/demo/assets/img/icons/wp.svg",
+      imgSrc: wpImage,
       percent: "99%",
     },
     {
@@ -78,8 +80,7 @@ const Skills = () => {
     },
     {
       skillName: "Javascript",
-      imgSrc:
-        "https://themejunction.net/html/gerold/demo/assets/img/icons/js.svg",
+      imgSrc: jsImage,
       percent: "90%",
     },
     // Add more skills as needed

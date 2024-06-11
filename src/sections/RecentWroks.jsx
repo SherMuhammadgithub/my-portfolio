@@ -1,4 +1,9 @@
 // components/RecentWorks.js
+"use client";
+import work1 from "/public/work-1.png";
+import work2 from "/public/work-2.png";
+import work3 from "/public/work-3.png";
+import work4 from "/public/work-4.png";
 
 import React, { useState, useEffect } from "react";
 import Card from "@/components/Card";
@@ -12,48 +17,42 @@ export default function RecentWorks() {
   }, []);
   const cardsData = [
     {
-      imgSrc:
-        "https://themejunction.net/html/gerold/demo/assets/img/portfolio/2.jpg",
+      imgSrc: work1,
       title: "Food-App",
       tab: "UI/UX",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, magnam.",
     },
     {
-      imgSrc:
-        "https://themejunction.net/html/gerold/demo/assets/img/portfolio/2.jpg",
+      imgSrc: work2,
       title: "Ecommerce-App",
       tab: "App",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, magnam.",
     },
     {
-      imgSrc:
-        "https://themejunction.net/html/gerold/demo/assets/img/portfolio/2.jpg",
+      imgSrc: work3,
       title: "Books-app",
       tab: "Branding",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, magnam.",
     },
     {
-      imgSrc:
-        "https://themejunction.net/html/gerold/demo/assets/img/portfolio/2.jpg",
+      imgSrc: work4,
       title: "Todo-App",
       tab: "UI/UX",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, magnam.",
     },
     {
-      imgSrc:
-        "https://themejunction.net/html/gerold/demo/assets/img/portfolio/2.jpg",
+      imgSrc: work1,
       title: "Shopping-App",
       tab: "App",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, magnam.",
     },
     {
-      imgSrc:
-        "https://themejunction.net/html/gerold/demo/assets/img/portfolio/2.jpg",
+      imgSrc: work2,
       title: "Image-Search-App",
       tab: "Branding",
       description:

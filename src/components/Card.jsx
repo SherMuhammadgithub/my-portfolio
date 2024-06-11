@@ -1,6 +1,6 @@
 import React from "react";
 import "./Cards.css";
-
+import Image from "next/image";
 export default function Card({ imgSrc, title, description, transitionClass }) {
   return (
     <div
@@ -8,7 +8,14 @@ export default function Card({ imgSrc, title, description, transitionClass }) {
     >
       {" "}
       <div className="text-gray-500 group-hover:scale-105 transition-all">
-        <img src={imgSrc} alt="portfolio-pic-1" />
+        <Image
+          src={imgSrc}
+          alt="portfolio-pic-1"
+          width={500}
+          height={584}
+          className="w-full
+         h-full object-contain"
+        />
       </div>
       <div className="flex items-center transition-all duration-500 delay-200 group-hover:bottom-3 -bottom-full absolute gap-2 justify-evenly w-full">
         <div

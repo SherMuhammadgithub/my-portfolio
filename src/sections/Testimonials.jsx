@@ -1,3 +1,5 @@
+"use client";
+import clientImage from "/public/client-1.jpg";
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -6,6 +8,7 @@ import "./hero.css";
 import { TbTriangleFilled } from "react-icons/tb";
 import "./testimonials.css";
 import AOS from "aos";
+import Image from "next/image";
 
 export default function Testimonials() {
   useEffect(() => {
@@ -37,8 +40,7 @@ export default function Testimonials() {
   const testimonialsData = [
     {
       name: "Sher Ali",
-      image:
-        "https://themejunction.net/html/gerold/demo/assets/img/testimonials/user/1.jpg",
+      image: clientImage,
       quote:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus autem totam magnam doloribus doloremque, nisi iusto.",
       title: "Ms Sravraed",
@@ -46,8 +48,7 @@ export default function Testimonials() {
     },
     {
       name: "Muhammad Ali",
-      image:
-        "https://themejunction.net/html/gerold/demo/assets/img/testimonials/user/1.jpg",
+      image: clientImage,
       quote:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus autem totam magnam doloribus doloremque, nisi iusto.",
       title: "Mr Hravraed",
@@ -100,10 +101,12 @@ export default function Testimonials() {
                       <h1>{testimonial.name}</h1>
                     </div>
                     <div className="ml-auto">
-                      <img
+                      <Image
                         src={testimonial.image}
-                        alt=""
+                        alt="clients"
                         className="w-12 h-12 rounded-full"
+                        width={0}
+                        height={0}
                       />
                     </div>
                   </div>
