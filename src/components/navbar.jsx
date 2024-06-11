@@ -53,6 +53,11 @@ export default function Navbar() {
             skills
             </Link>
           </li>
+          <li className="inline-block cursor-pointer">
+            <Link to="testimonails" smooth={true} duration={500}>
+            testimonails
+            </Link>
+          </li>
         </ul>
         <div className="relative lg:inline-flex hidden items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded-xl hover:pl-10 hover:pr-6 border-2 border-white text-white dark:text-white dark:hover:text-gray-200 dark:shadow-none group cursor-pointer">
           <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-[#693dc3] group-hover:h-full"></span>
@@ -171,6 +176,16 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               skills
+            </Link>
+          </li>
+          <li className="cursor-pointer">
+            <Link
+              to="testimonails"
+              smooth={true}
+              duration={500}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              testimonails
             </Link>
           </li>
         </ul>

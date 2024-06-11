@@ -5,8 +5,12 @@ import "slick-carousel/slick/slick-theme.css";
 import "./hero.css";
 import { TbTriangleFilled } from "react-icons/tb";
 import "./testimonials.css";
+import AOS from "aos";
 
 export default function Testimonials() {
+  useEffect(() => {
+    AOS.init({ duration: 800 });
+  }, []);
   const [slides, setSlides] = useState(2);
 
   useEffect(() => {
@@ -68,7 +72,7 @@ export default function Testimonials() {
       id="testimonails"
       className="md:py-16 p-4 flex justify-center items-center bg-[#050709] text-white"
     >
-      <div className="container">
+      <div className="container" data-aos="fade-up">
         <div className="flex flex-wrap justify-center items-start w-full gap-10 md:gap-0 2xl:px-24">
           <div className="header-section w-full md:w-1/2">
             <div className="section-header mx-3 w-[100%] max-w-[700px]  space-y-6">
