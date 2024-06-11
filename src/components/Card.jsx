@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Cards.css";
 import Image from "next/image";
 export default function Card({ imgSrc, title, description, transitionClass }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const handleMouseEnter = (value) => {
+    setIsHovered(value);
+  };
+  const handleMouseLeave = (value) => {
+    setIsHovered(value);
+  };
   return (
     <div
       className={`bg-[#050709] rounded-md overflow-hidden relative text-center p-6 group items-center flex flex-col max-w-sm hover:shadow-2xl transition-all duration-500 shadow-xl w-full md:w-1/2 h-80 ${transitionClass}`}
+      onMouseEnter={() => handleMouseEnter(true)}
+      onMouseLeave={() => handleMouseLeave(false)}
     >
       {" "}
       <div className="text-gray-500 group-hover:scale-105 transition-all">
@@ -13,8 +22,10 @@ export default function Card({ imgSrc, title, description, transitionClass }) {
           alt="portfolio-pic-1"
           width={500}
           height={584}
+          loading="lazy"
           className="w-full
          h-full object-contain"
+          // style={{ filter: isHovered ? "none" : "grayscale(100%)" }}
         />
       </div>
       <div className="flex items-center transition-all duration-500 delay-200 group-hover:bottom-3 -bottom-full absolute gap-2 justify-evenly w-full">

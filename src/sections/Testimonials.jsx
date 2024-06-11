@@ -104,6 +104,7 @@ export default function Testimonials() {
                       <Image
                         src={testimonial.image}
                         alt="clients"
+                        loading="lazy"
                         className="w-12 h-12 rounded-full"
                         width={0}
                         height={0}

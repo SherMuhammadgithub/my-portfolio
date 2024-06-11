@@ -34,8 +34,15 @@ const SkillCard = ({ skillName, imgSrc, percent }) => {
         <div
           className="img"
           style={{ filter: isHovered ? "none" : "grayscale(100%)" }}
-        > 
-          <Image src={imgSrc} alt="my-skill" className="w-20 h-auto" width={100}  height={100}/>
+        >
+          <Image
+            loading="lazy"
+            src={imgSrc}
+            alt="my-skill"
+            className="w-20 h-auto"
+            width={100}
+            height={100}
+          />
         </div>
         <div className="percent font-bold tracking-wider text-xl">
           {percent}
