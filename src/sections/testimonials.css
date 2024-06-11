@@ -1,0 +1,26 @@
+#testimonails{
+    position: relative;
+    z-index: 10;
+}
+
+#circle-effect::before{
+    content: "";
+    position: absolute;
+    bottom: 1%;
+    left: 0%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient( 260deg, #854ef5 0%, rgba(115, 64, 214, 0) 100% );
+    -webkit-filter: blur(150px);
+    filter: blur(150px);
+    margin-right: -5%;
+    margin-top: -5%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    z-index: 20;
+  }
