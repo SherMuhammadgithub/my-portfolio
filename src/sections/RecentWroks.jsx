@@ -18,42 +18,42 @@ export default function RecentWorks() {
   const cardsData = [
     {
       imgSrc: work1,
-      title: "Food-App",
+      title: "Xpense-Tracker App",
       tab: "UI/UX",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, magnam.",
     },
     {
       imgSrc: work2,
-      title: "Ecommerce-App",
+      title: "Image-Search App",
       tab: "App",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, magnam.",
     },
     {
       imgSrc: work3,
-      title: "Books-app",
+      title: "my-potfolio-website",
       tab: "Branding",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, magnam.",
     },
     {
       imgSrc: work4,
-      title: "Todo-App",
+      title: "Books-App",
       tab: "UI/UX",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, magnam.",
     },
     {
       imgSrc: work1,
-      title: "Shopping-App",
+      title: "Xepnse-Tracker App",
       tab: "App",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, magnam.",
     },
     {
       imgSrc: work2,
-      title: "Image-Search-App",
+      title: "Image-Search App",
       tab: "Branding",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, magnam.",

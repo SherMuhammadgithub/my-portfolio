@@ -36,7 +36,7 @@ export default function Card({ imgSrc, title, description, transitionClass }) {
           }}
         >
           <div className="content space-y-2">
-            <h1 className="text-2xl font-bold">{title}</h1>
+            <h1 className="text-xl font-bold  tracking-wider">{title}</h1>
             <p className="text-sm">{description}</p>
             <button className="text-zinc-700 hover:text-white backdrop-blur-lg bg-gradient-to-tr from-transparent via-[rgba(121,121,121,0.16)] to-transparent rounded-md py-1 px-6 shadow hover:shadow-white duration-700 text-sm">
               see
