@@ -169,7 +169,7 @@ export default function Hero() {
               height={350}
               placeholder="blur"
               loading="lazy"
-              className={`border-2 border-[#693dc3] items-center rounded-[38px] rotate-[4.29deg] transform transition-all duration-300 ease-in-out hover:rotate-0`}
+              className={`border-2 border-[#693dc3] items-center rounded-[38px] rotate-[4.29deg] transform transition-all duration-300 ease-in-out hover:rotate-0 `}
             />
           </div>
         </div>
