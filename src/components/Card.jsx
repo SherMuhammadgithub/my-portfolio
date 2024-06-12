@@ -1,31 +1,41 @@
 import React, { useState } from "react";
 import "./Cards.css";
 import Image from "next/image";
+import Loader from "@/components/Loader";
+
 export default function Card({ imgSrc, title, description, transitionClass }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
   const handleMouseEnter = (value) => {
     setIsHovered(value);
   };
   const handleMouseLeave = (value) => {
     setIsHovered(value);
   };
+
   return (
     <div
       className={`bg-[#050709] rounded-md overflow-hidden relative text-center p-6 group items-center flex flex-col max-w-sm hover:shadow-2xl transition-all duration-500 shadow-xl w-full md:w-1/2 h-80 ${transitionClass}`}
       onMouseEnter={() => handleMouseEnter(true)}
       onMouseLeave={() => handleMouseLeave(false)}
     >
-      {" "}
-      <div className="text-gray-500 group-hover:scale-105 transition-all">
+      <div className="text-gray-500 group-hover:scale-105 transition-all relative w-full h-full">
+        {isLoading && (
+          <div className="absolute inset-0 flex justify-center items-center">
+            <Loader />
+          </div>
+        )}
         <Image
           src={imgSrc}
           alt="portfolio-pic-1"
           width={500}
           height={584}
           loading="lazy"
-          className="w-full
-         h-full object-contain"
-          // style={{ filter: isHovered ? "none" : "grayscale(100%)" }}
+          className={`w-full h-full object-contain ${
+            isLoading ? "hidden" : "block"
+          }`}
+          onLoad={() => setIsLoading(false)}
         />
       </div>
       <div className="flex items-center transition-all duration-500 delay-200 group-hover:bottom-3 -bottom-full absolute gap-2 justify-evenly w-full">
@@ -36,10 +46,10 @@ export default function Card({ imgSrc, title, description, transitionClass }) {
           }}
         >
           <div className="content space-y-2">
-            <h1 className="text-xl font-bold  tracking-wider">{title}</h1>
+            <h1 className="text-xl font-bold tracking-wider">{title}</h1>
             <p className="text-sm">{description}</p>
             <button className="text-zinc-700 hover:text-white backdrop-blur-lg bg-gradient-to-tr from-transparent via-[rgba(121,121,121,0.16)] to-transparent rounded-md py-1 px-6 shadow hover:shadow-white duration-700 text-sm">
-              see
+              See
             </button>
           </div>
         </div>
