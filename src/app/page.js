@@ -7,6 +7,7 @@ import RecentWroks from "@/sections/RecentWroks";
 import Resume from "@/sections/Resume";
 import Skills from "@/sections/Skills";
 import Testimonials from "@/sections/Testimonials";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <Resume />
         <Skills />
         <Testimonials />
+        <Footer />
       </>
     </>
   );
