@@ -106,8 +106,8 @@ const Skills = () => {
                 My Skills
               </h1>
               <p className="text-base md:text-lg text-center">
-                We put your ideas and thus your wishes in the form of a unique
-                web project that inspires you and your customers.
+                I specialize in web development and UX design, blending creative
+                vision with technical expertise to deliver exceptional results.
               </p>
             </div>
           </div>

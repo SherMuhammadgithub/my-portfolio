@@ -39,12 +39,12 @@ export default function Testimonials() {
 
   const testimonialsData = [
     {
-      name: "Sher Ali",
+      name: "Mujahid Khan",
       image: clientImage,
       quote:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus autem totam magnam doloribus doloremque, nisi iusto.",
-      title: "Ms Sravraed",
-      position: "CEO, of Malta",
+      title: "Web development",
+      position: "Full stack Developer, of Pakistan",
     },
     {
       name: "Muhammad Ali",
@@ -81,8 +81,9 @@ export default function Testimonials() {
                 My Client Stories
               </h1>
               <p className="text-base md:text-lg">
-                We put your ideas and thus your wishes in the form of a unique
-                web project that inspires you and your customers.
+                I partner with clients to create custom web solutions, ensuring
+                their unique needs are met with innovative and inspiring
+                designs.
               </p>
             </div>
           </div>

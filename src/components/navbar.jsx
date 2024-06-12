@@ -50,12 +50,12 @@ export default function Navbar() {
           </li>
           <li className="inline-block cursor-pointer">
             <Link to="skills" smooth={true} duration={500}>
-            skills
+              skills
             </Link>
           </li>
           <li className="inline-block cursor-pointer">
             <Link to="testimonails" smooth={true} duration={500}>
-            testimonails
+              testimonails
             </Link>
           </li>
         </ul>

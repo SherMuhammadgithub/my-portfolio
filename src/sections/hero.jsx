@@ -1,12 +1,12 @@
 "use client";
 import heroImage from "/public/hero.png";
+import resume from "/public/resume.pdf";
 import Image from "next/image";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import { FaGithubSquare } from "react-icons/fa";
 import "./hero.css";
-import Loader from "@/components/Loader";
 
 export default function Hero() {
   const [isLoading, setIsLoading] = useState(true); // State for managing the loading status
@@ -118,22 +118,18 @@ export default function Hero() {
 
             {/* Loader and Image */}
             <div className="flex justify-center p-2 overflow-hidden md:hidden">
-              {isLoading && <Loader />}
               <Image
                 src={heroImage}
                 alt="Description of the image"
                 width={380}
                 height={200}
                 loading="lazy"
-                className={`border-2 border-[#693dc3] items-center rounded-[38px] rotate-[4.29deg] transform transition-all duration-300 ease-in-out hover:rotate-0 ${
-                  isLoading ? "hidden" : "block"
-                }`}
-                onLoad={() => setIsLoading(false)}
+                className={`border-2 border-[#693dc3] items-center rounded-[38px] rotate-[4.29deg] transform transition-all duration-300 ease-in-out hover:rotate-0 $`}
               />
             </div>
 
             <p className="max-w-[550px] w-full text-lg lg:text-[20px]">
-              We break down complex user experience problems to create
+              I break down complex user experience problems to create
               integrity-focused solutions that connect billions of people.
             </p>
             <div className="button-box pt-2 flex justify-center md:justify-start flex-wrap items-center gap-6 md:gap-10">
@@ -141,7 +137,9 @@ export default function Hero() {
                 href="#"
                 className="w-full md:w-56 border border-[#693dc3] bg-[#693dc3] rounded-xl text-white py-3 px-6 text-sm md:text-lg hover:bg-transparent transition-all duration-300 ease-in-out"
               >
-                Download CV
+                <a href={resume} download="Resume">
+                  Download CV
+                </a>
               </button>
               <div className="social-media-icons flex justify-center items-center gap-8 md:my-0">
                 {socialMediaIcons.map((icon, index) => {
@@ -164,18 +162,14 @@ export default function Hero() {
           </div>
         </div>
         <div className="col-2 w-1/2 md:flex justify-center items-center hidden p-4">
-          <div className="p-10">
-            {isLoading && <Loader />}
+          <div className="p-10 ">
             <Image
               src={heroImage}
               alt="Description of the image"
               width={380}
               height={350}
               loading="lazy"
-              className={`border-2 border-[#693dc3] items-center rounded-[38px] rotate-[4.29deg] transform transition-all duration-300 ease-in-out hover:rotate-0 ${
-                isLoading ? "hidden" : "block"
-              }`}
-              onLoad={() => setIsLoading(false)}
+              className={`border-2 border-[#693dc3] items-center rounded-[38px] rotate-[4.29deg] transform transition-all duration-300 ease-in-out hover:rotate-0`}
             />
           </div>
         </div>

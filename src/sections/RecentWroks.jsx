@@ -4,6 +4,7 @@ import work1 from "/public/work-1.png";
 import work2 from "/public/work-2.png";
 import work3 from "/public/work-3.png";
 import work4 from "/public/work-4.png";
+import work5 from "/public/work-5.png";
 
 import React, { useState, useEffect } from "react";
 import Card from "@/components/Card";
@@ -21,42 +22,48 @@ export default function RecentWorks() {
       title: "Xpense-Tracker App",
       tab: "UI/UX",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, magnam.",
+        "This is a simple expense tracker app that helps you to track your daily expenses and income. It is built using React.js, Tailwind CSS, Node and Sqlite.",
+      link: "https://www.xpensetracker.live/",
     },
     {
       imgSrc: work2,
       title: "Image-Search App",
       tab: "App",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, magnam.",
+        "This is a simple image search app that helps you to search images from Unsplash API. It is built using Tailwind CSS.",
+      link: "https://imgchinaedition.netlify.app/",
     },
     {
       imgSrc: work3,
       title: "my-potfolio-website",
-      tab: "Branding",
+      tab: "UI/UX",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, magnam.",
+        "This is a simple portfolio website that helps you to showcase my work and skills. It is built using Next.js and Tailwind CSS.",
+      link: "http://shertec.me/company-portfolio/",
     },
     {
       imgSrc: work4,
       title: "Books-App",
-      tab: "UI/UX",
+      tab: "Branding",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, magnam.",
+        "This is a simple book app that helps you to buy different books. It is built using MERN stack.",
+      link: "https://book-app-frontend-virid.vercel.app/",
     },
     {
       imgSrc: work1,
       title: "Xepnse-Tracker App",
       tab: "App",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, magnam.",
+        "This is a simple expense tracker app that helps you to track your daily expenses and income. It is built using React.js, Tailwind CSS, Node and Sqlite.",
+      link: "https://www.xpensetracker.live/",
     },
     {
-      imgSrc: work2,
-      title: "Image-Search App",
+      imgSrc: work5,
+      title: "Shoe Store App",
       tab: "Branding",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, magnam.",
+        "This is a simple shoe store app that helps you to buy shoes online. It is built using Tailwind CSS.",
+      link: "http://shertec.me/TRENDY-THREDS-SHOES/",
     },
   ];
 
@@ -90,8 +97,8 @@ export default function RecentWorks() {
                 My Quality Work
               </h1>
               <p className="text-base md:text-lg text-center text-white">
-                We put your ideas and thus your wishes in the form of a unique
-                web project that inspires you and your customers.
+                Every project I create is a unique piece, crafted to bring your
+                vision to life with innovative design and technology.
               </p>
             </div>
           </div>
@@ -158,6 +165,7 @@ export default function RecentWorks() {
               title={card.title}
               description={card.description}
               tab={card.tab}
+              link={card.link}
             />
           ))}
         </div>
