@@ -9,8 +9,6 @@ import { FaGithubSquare } from "react-icons/fa";
 import "./hero.css";
 
 export default function Hero() {
-  const [isLoading, setIsLoading] = useState(true); // State for managing the loading status
-
   const socialMediaIcons = [
     {
       icon: FaGithubSquare,
@@ -98,7 +96,7 @@ export default function Hero() {
   return (
     <main
       id="home"
-      className={`hero-section flex flex-col justify-center items-center bg-[#030313fc] text-white relative z-10 h-auto p-8 md:p-16 xl:p-24`}
+      className={`hero-section flex flex-col justify-center items-center bg-[#030313fc] text-white relative z-10 h-auto p-8 md:p-16 xl:p-24 overflow-hidden`}
     >
       <span id="page-intro"></span>
       <span className="text-style hidden md:block">HI</span>
@@ -135,7 +133,7 @@ export default function Hero() {
             <div className="button-box pt-2 flex justify-center md:justify-start flex-wrap items-center gap-6 md:gap-10">
               <button
                 href="#"
-                className="w-full md:w-56 border border-[#693dc3] bg-[#693dc3] rounded-xl text-white py-3 px-6 text-sm md:text-lg hover:bg-transparent transition-all duration-300 ease-in-out"
+                className="w-full md:w-56 border border-[#693dc3] bg-[#693dc3] rounded-xl text-white py-3 px-6 text-sm md:text-lg hover:bg-transparent transition-all duration-500 ease-in-out hover:text-[#693dc3]"
               >
                 <a href={resume} download="Resume">
                   Download CV

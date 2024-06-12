@@ -71,7 +71,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonails"
-      className="md:py-16 p-4 flex justify-center items-center bg-[#050709] text-white"
+      className="md:py-16 p-4 flex justify-center items-center bg-[#050709] text-white overflow-hidden"
     >
       <div className="container" data-aos="fade-up">
         <div className="flex flex-wrap justify-center items-start w-full gap-10 md:gap-0 2xl:px-24">

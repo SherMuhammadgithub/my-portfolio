@@ -33,7 +33,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="py-4 md:py-16 bg-[#050709] text-white flex justify-center items-center"
+      className="py-4 md:py-16 bg-[#050709] text-white flex justify-center items-center overflow-hidden"
     >
       <div className="container" data-aos="fade-up">
         <div className="row flex flex-wrap my-2">

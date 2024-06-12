@@ -52,7 +52,7 @@ export default function Resume() {
   return (
     <section
       id="Resume"
-      className="flex justify-center items-center p-4 lg:p-16"
+      className="flex justify-center items-center p-4 lg:p-16 overflow-hidden"
     >
       <div className="container" data-aos="fade-up">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-32  w-full  lg:px-10  xl:px-24">

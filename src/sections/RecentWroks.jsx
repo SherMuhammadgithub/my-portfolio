@@ -86,7 +86,7 @@ export default function RecentWorks() {
   return (
     <div
       id="portfolio"
-      className="portfolio-section flex justify-center w-full p-4 md:py-16"
+      className="portfolio-section flex justify-center w-full p-4 md:py-16 overflow-hidden"
     >
       <span className="rounded-circle"></span>
       <div className="container" data-aos="fade-up">

@@ -96,7 +96,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="bg-[#110818] text-white p-4 md:py-16 flex justify-center items-center"
+      className="bg-[#110818] text-white p-4 md:py-16 flex justify-center items-center overflow-hidden"
     >
       <div className="container" data-aos="fade-up">
         <div className="row flex flex-wrap my-2">
