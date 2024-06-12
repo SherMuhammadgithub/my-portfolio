@@ -40,6 +40,7 @@ const SkillCard = ({ skillName, imgSrc, percent }) => {
             src={imgSrc}
             alt="my-skill"
             className="w-20 h-auto"
+            // placeholder="blur"
             width={100}
             height={100}
           />

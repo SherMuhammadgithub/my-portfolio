@@ -98,7 +98,7 @@ export default function Navbar() {
           </span>
         </div>
       </div>
-      <div className="hamburger absolute right-4 top-[1.9rem] md:top-10 rotate-180 mx-10">
+      <div className="hamburger absolute right-4 top-[1.7rem] md:top-10 rotate-180 mx-10">
         <button
           className="block lg:hidden focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}

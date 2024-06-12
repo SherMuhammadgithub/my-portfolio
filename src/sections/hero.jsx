@@ -121,6 +121,7 @@ export default function Hero() {
                 alt="Description of the image"
                 width={380}
                 height={200}
+                placeholder="blur"
                 loading="lazy"
                 className={`border-2 border-[#693dc3] items-center rounded-[38px] rotate-[4.29deg] transform transition-all duration-300 ease-in-out hover:rotate-0 $`}
               />
@@ -135,7 +136,7 @@ export default function Hero() {
                 href="#"
                 className="w-full md:w-56 border border-[#693dc3] bg-[#693dc3] rounded-xl text-white py-3 px-6 text-sm md:text-lg hover:bg-transparent transition-all duration-500 ease-in-out hover:text-[#693dc3]"
               >
-                <a href={resume} download="Resume">
+                <a href={resume} download="Resume.pdf">
                   Download CV
                 </a>
               </button>
@@ -166,6 +167,7 @@ export default function Hero() {
               alt="Description of the image"
               width={380}
               height={350}
+              placeholder="blur"
               loading="lazy"
               className={`border-2 border-[#693dc3] items-center rounded-[38px] rotate-[4.29deg] transform transition-all duration-300 ease-in-out hover:rotate-0`}
             />

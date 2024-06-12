@@ -30,6 +30,7 @@ export default function Card({
           alt="portfolio-pic-1"
           width={500}
           height={584}
+          placeholder="blur" // it will show a blur image before loading the actual image
           className={`w-full h-full object-contain rounded-2xl`}
         />
       </div>
@@ -43,7 +44,9 @@ export default function Card({
           <div className="content space-y-2">
             <h1 className="text-sm  font-bold tracking-wider">{title}</h1>
             <p className="text-xs ">{description}</p>
-           <a href={link} className="underline text-sm">view</a>
+            <a href={link} className="underline text-sm">
+              view
+            </a>
           </div>
         </div>
       </div>
