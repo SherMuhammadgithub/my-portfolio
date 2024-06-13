@@ -25,10 +25,10 @@ export default function Testimonials() {
       }
     };
 
-    // Set initial value based on current window width
+    // initial value based on current window width
     handleResize();
 
-    // Add resize event listener
+    // resize event listener
     window.addEventListener("resize", handleResize);
 
     // Clean up event listener on component unmount
@@ -54,7 +54,6 @@ export default function Testimonials() {
       title: "Mr Hravraed",
       position: "CEO, of Malta",
     },
-    // Add more testimonial objects as needed
   ];
 
   const settings = {

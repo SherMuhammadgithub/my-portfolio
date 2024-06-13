@@ -174,8 +174,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className="hero-footer"></div>
-      {/* clients sections */}
       <canvas
         ref={canvasRef}
         className="absolute w-[100%] h-[50%] md:h-[100%] left-0 z-[-1]"

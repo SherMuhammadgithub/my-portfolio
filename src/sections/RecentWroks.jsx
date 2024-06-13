@@ -75,7 +75,7 @@ export default function RecentWorks() {
     setTimeout(() => {
       setActiveTab(tab);
       setIsTransitioning(false);
-    }, 300); // Transition duration should match the CSS transition duration
+    }, 300); 
   };
 
   const filteredCards =

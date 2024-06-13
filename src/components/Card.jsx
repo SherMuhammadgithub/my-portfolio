@@ -30,7 +30,7 @@ export default function Card({
           alt="portfolio-pic-1"
           width={500}
           height={584}
-          placeholder="blur" // it will show a blur image before loading the actual image
+          placeholder="blur" 
           className={`w-full h-full object-contain rounded-2xl`}
         />
       </div>

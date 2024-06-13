@@ -55,7 +55,7 @@ const SkillCard = ({ skillName, imgSrc, percent }) => {
 };
 
 const Skills = () => {
-  // Sample skill data
+  // skill data
   const skills = [
     {
       skillName: "Figma",
@@ -116,7 +116,6 @@ const Skills = () => {
 
         <div className="cards-section w-full my-8">
           <div className="flex justify-center items-center flex-wrap gap-4">
-            {/* Iterate over skills array and render SkillCard for each skill */}
             {skills.map((skill, index) => (
               <SkillCard
                 key={index}

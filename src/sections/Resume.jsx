@@ -75,7 +75,7 @@ export default function Resume() {
             ))}
           </div>
           <div className="education-col space-y-6 w-full ">
-            {/* Add your education section here */}
+            {/* ducation section here */}
             <div className="header flex justify-start items-center gap-4 my-6">
               <div className="icon">
                 <SiBookstack className="w-10 h-10 text-[#874ffb]" />
