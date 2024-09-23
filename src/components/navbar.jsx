@@ -15,9 +15,8 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navbarClasses = `fixed top-0 text-white left-0 w-full p-6 md:p-8 md:px-16 z-50 transition-all duration-300 ease-in-out ${
-    isScrolled ? "bg-black shadow-lg shadow-indigo-500/50" : "bg-transparent"
-  }`;
+  const navbarClasses = `fixed top-0 text-white left-0 w-full p-6 md:p-8 md:px-16 z-50 transition-all duration-300 ease-in-out ${isScrolled ? "bg-black shadow-lg shadow-indigo-500/50" : "bg-transparent"
+    }`;
 
   return (
     <nav className={navbarClasses}>
@@ -59,7 +58,10 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
-        <div className="relative lg:inline-flex hidden items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded-xl hover:pl-10 hover:pr-6 border-2 border-white text-white dark:text-white dark:hover:text-gray-200 dark:shadow-none group cursor-pointer">
+        <a
+          href="mailto:muhammadiqbalshermuhammad@gmail.com"
+          className="relative lg:inline-flex hidden items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded-xl hover:pl-10 hover:pr-6 border-2 border-white text-white dark:text-white dark:hover:text-gray-200 dark:shadow-none group cursor-pointer"
+        >
           <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-[#693dc3] group-hover:h-full"></span>
           <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
             <svg
@@ -96,7 +98,8 @@ export default function Navbar() {
           <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200">
             Contact
           </span>
-        </div>
+        </a>
+
       </div>
       <div className="hamburger absolute right-4 top-[1.7rem] md:top-10 rotate-180 mx-10">
         <button
@@ -105,27 +108,23 @@ export default function Navbar() {
         >
           <div className="relative w-8 h-6">
             <span
-              className={`block absolute h-0.5 w-full bg-white transform transition-all duration-300 ease-in-out ${
-                isMenuOpen ? "rotate-45 top-2.5" : "top-0"
-              }`}
+              className={`block absolute h-0.5 w-full bg-white transform transition-all duration-300 ease-in-out ${isMenuOpen ? "rotate-45 top-2.5" : "top-0"
+                }`}
             ></span>
             <span
-              className={`block absolute h-0.5 w-full bg-white transition-all duration-300 ease-in-out ${
-                isMenuOpen ? "opacity-0" : "top-2.5"
-              }`}
+              className={`block absolute h-0.5 w-full bg-white transition-all duration-300 ease-in-out ${isMenuOpen ? "opacity-0" : "top-2.5"
+                }`}
             ></span>
             <span
-              className={`block absolute h-0.5 w-full bg-white transform transition-all duration-300 ease-in-out ${
-                isMenuOpen ? "-rotate-45 top-2.5" : "top-5"
-              }`}
+              className={`block absolute h-0.5 w-full bg-white transform transition-all duration-300 ease-in-out ${isMenuOpen ? "-rotate-45 top-2.5" : "top-5"
+                }`}
             ></span>
           </div>
         </button>
       </div>
       <div
-        className={`${
-          isMenuOpen ? "translate-x-0" : "-translate-x-full"
-        } lg:hidden fixed inset-y-0 left-0 w-64 bg-[#110818] text-white transform transition-transform duration-300 ease-in-out`}
+        className={`${isMenuOpen ? "translate-x-0" : "-translate-x-full"
+          } lg:hidden fixed inset-y-0 left-0 w-64 bg-[#110818] text-white transform transition-transform duration-300 ease-in-out`}
       >
         <ul className="text-center space-y-10 mt-10">
           <li className="cursor-pointer">

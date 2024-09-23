@@ -13,18 +13,18 @@ export default function Resume() {
   const experiences = [
     {
       year: "2024-present",
-      title: "MERN Developer",
-      state: "Pakistan, Lahore",
+      title: "ANGULAR Developer",
+      state: "Wordsense 2.0, Lahore",
     },
     {
       year: "2022-2023",
       title: "React Developer",
-      state: "Pakistan, Lahore",
+      state: "Pakistan, Freelance",
     },
     {
       year: "2020-2022",
       title: "html,css Developer",
-      state: "Pakistan, Lahore",
+      state: "Pakistan, Freelance",
     },
     {
       year: "2018-2020",

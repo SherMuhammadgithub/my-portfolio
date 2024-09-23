@@ -27,9 +27,8 @@ const SkillCard = ({ skillName, imgSrc, percent }) => {
       onMouseLeave={handleMouseLeave}
     >
       <div
-        className={`img-layer flex flex-col justify-center items-center gap-4  rounded-3xl w-52 h-48 ${
-          isHovered ? "bg-[#693dc3] border-2 border-white" : "bg-[#140c1c]"
-        } transition-all duration-300 ease-in-out`}
+        className={`img-layer flex flex-col justify-center items-center gap-4  rounded-3xl w-52 h-48 ${isHovered ? "bg-[#693dc3] border-2 border-white" : "bg-[#140c1c]"
+          } transition-all duration-300 ease-in-out`}
       >
         <div
           className="img"
@@ -58,27 +57,27 @@ const Skills = () => {
   // skill data
   const skills = [
     {
-      skillName: "Figma",
+      skillName: "Angular",
       imgSrc:
-        "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
+        "https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg",
       percent: "90%",
     },
     {
       skillName: "React",
       imgSrc:
         "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
-      percent: "95%",
+      percent: "80%",
     },
     {
       skillName: "HTML",
       imgSrc:
         "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
-      percent: "99%",
+      percent: "90%",
     },
     {
       skillName: "Word Press",
       imgSrc: wpImage,
-      percent: "99%",
+      percent: "90%",
     },
     {
       skillName: "Node.js",
@@ -89,7 +88,7 @@ const Skills = () => {
     {
       skillName: "Javascript",
       imgSrc: jsImage,
-      percent: "90%",
+      percent: "80%",
     },
     // Add more skills as needed
   ];
