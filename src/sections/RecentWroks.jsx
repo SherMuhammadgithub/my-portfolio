@@ -5,6 +5,7 @@ import work2 from "/public/work-2.png";
 import work3 from "/public/work-3.png";
 import work4 from "/public/work-4.png";
 import work5 from "/public/work-5.png";
+import work6 from "/public/solitaire-game.png";
 
 import React, { useState, useEffect } from "react";
 import Card from "@/components/Card";
@@ -20,7 +21,7 @@ export default function RecentWorks() {
     {
       imgSrc: work1,
       title: "Xpense-Tracker App",
-      tab: "UI/UX",
+      tab: "App",
       description:
         "This is a simple expense tracker app that helps you to track your daily expenses and income. It is built using React.js, Tailwind CSS, Node and Sqlite.",
       link: "https://www.xpensetracker.live/",
@@ -28,7 +29,7 @@ export default function RecentWorks() {
     {
       imgSrc: work2,
       title: "Image-Search App",
-      tab: "App",
+      tab: "Branding",
       description:
         "This is a simple image search app that helps you to search images from Unsplash API. It is built using Tailwind CSS.",
       link: "https://imgchinaedition.netlify.app/",
@@ -44,18 +45,10 @@ export default function RecentWorks() {
     {
       imgSrc: work4,
       title: "Books-App",
-      tab: "Branding",
+      tab: "App",
       description:
         "This is a simple book app that helps you to buy different books. It is built using MERN stack.",
       link: "https://book-app-frontend-virid.vercel.app/",
-    },
-    {
-      imgSrc: work1,
-      title: "Xepnse-Tracker App",
-      tab: "App",
-      description:
-        "This is a simple expense tracker app that helps you to track your daily expenses and income. It is built using React.js, Tailwind CSS, Node and Sqlite.",
-      link: "https://www.xpensetracker.live/",
     },
     {
       imgSrc: work5,
@@ -64,6 +57,14 @@ export default function RecentWorks() {
       description:
         "This is a simple shoe store app that helps you to buy shoes online. It is built using Tailwind CSS.",
       link: "http://shertec.me/TRENDY-THREDS-SHOES/",
+    },
+    {
+      imgSrc: work6,
+      title: "Solitaire Game",
+      tab: "Branding",
+      description:
+        "This project implements a Solitaire game based on Klondike rules, applying data structures like stacks, queues, linked lists, arrays to manage game mechanics, including card moves, shuffling, and win conditions.",
+      link: "http://shertec.me/Solitaire-game/",
     },
   ];
 
@@ -75,7 +76,7 @@ export default function RecentWorks() {
     setTimeout(() => {
       setActiveTab(tab);
       setIsTransitioning(false);
-    }, 300); 
+    }, 300);
   };
 
   const filteredCards =
