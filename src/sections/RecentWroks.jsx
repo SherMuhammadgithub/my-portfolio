@@ -1,176 +1,192 @@
-// components/RecentWorks.js
 "use client";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import work1 from "/public/work-1.png";
 import work2 from "/public/work-2.png";
 import work3 from "/public/work-3.png";
 import work4 from "/public/work-4.png";
 import work5 from "/public/work-5.png";
 import work6 from "/public/solitaire-game.png";
+import ProjectCard from "@/components/ProjectCard";
+import ProjectModal from "@/components/ProjectModal";
+import { PROJECTS, PROJECT_CATEGORIES } from "@/data/projects";
 
-import React, { useState, useEffect } from "react";
-import Card from "@/components/Card";
-import "./RecentWorks.css";
-import AOS from "aos";
-import "aos/dist/aos.css";
+const EARLIER_PROJECTS = [
+  {
+    imgSrc: work1,
+    title: "Xpense Tracker App",
+    link: "https://www.xpensetracker.live/",
+  },
+  {
+    imgSrc: work2,
+    title: "Image Search App",
+    link: "https://imgchinaedition.netlify.app/",
+  },
+  {
+    imgSrc: work3,
+    title: "Earlier Portfolio Website",
+    link: "http://shertec.me/company-portfolio/",
+  },
+  {
+    imgSrc: work4,
+    title: "Books App",
+    link: "https://book-app-frontend-virid.vercel.app/",
+  },
+  {
+    imgSrc: work5,
+    title: "Shoe Store App",
+    link: "http://shertec.me/TRENDY-THREDS-SHOES/",
+  },
+  {
+    imgSrc: work6,
+    title: "Solitaire Game",
+    link: "http://shertec.me/Solitaire-game/",
+  },
+];
 
 export default function RecentWorks() {
   useEffect(() => {
     AOS.init({ duration: 800 });
   }, []);
-  const cardsData = [
-    {
-      imgSrc: work1,
-      title: "Xpense-Tracker App",
-      tab: "App",
-      description:
-        "This is a simple expense tracker app that helps you to track your daily expenses and income. It is built using React.js, Tailwind CSS, Node and Sqlite.",
-      link: "https://www.xpensetracker.live/",
-    },
-    {
-      imgSrc: work2,
-      title: "Image-Search App",
-      tab: "Branding",
-      description:
-        "This is a simple image search app that helps you to search images from Unsplash API. It is built using Tailwind CSS.",
-      link: "https://imgchinaedition.netlify.app/",
-    },
-    {
-      imgSrc: work3,
-      title: "my-potfolio-website",
-      tab: "UI/UX",
-      description:
-        "This is a simple portfolio website that helps you to showcase my work and skills. It is built using Next.js and Tailwind CSS.",
-      link: "http://shertec.me/company-portfolio/",
-    },
-    {
-      imgSrc: work4,
-      title: "Books-App",
-      tab: "App",
-      description:
-        "This is a simple book app that helps you to buy different books. It is built using MERN stack.",
-      link: "https://book-app-frontend-virid.vercel.app/",
-    },
-    {
-      imgSrc: work5,
-      title: "Shoe Store App",
-      tab: "Branding",
-      description:
-        "This is a simple shoe store app that helps you to buy shoes online. It is built using Tailwind CSS.",
-      link: "http://shertec.me/TRENDY-THREDS-SHOES/",
-    },
-    {
-      imgSrc: work6,
-      title: "Solitaire Game",
-      tab: "Branding",
-      description:
-        "This project implements a Solitaire game based on Klondike rules, applying data structures like stacks, queues, linked lists, arrays to manage game mechanics, including card moves, shuffling, and win conditions.",
-      link: "http://shertec.me/Solitaire-game/",
-    },
-  ];
 
-  const [activeTab, setActiveTab] = useState("tab1");
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [showEarlier, setShowEarlier] = useState(false);
 
-  const handleSetTab = (tab) => {
-    setIsTransitioning(true);
-    setTimeout(() => {
-      setActiveTab(tab);
-      setIsTransitioning(false);
-    }, 300);
-  };
-
-  const filteredCards =
-    activeTab === "tab1"
-      ? cardsData
-      : cardsData.filter((card) => card.tab === activeTab);
+  const filteredProjects =
+    activeCategory === "All"
+      ? PROJECTS
+      : PROJECTS.filter((p) => p.categories.includes(activeCategory));
 
   return (
     <div
       id="portfolio"
-      className="portfolio-section flex justify-center w-full p-4 md:py-16 overflow-hidden"
+      className="relative flex justify-center w-full p-4 md:py-16 overflow-hidden bg-[#110818]"
     >
-      <span className="rounded-circle"></span>
-      <div className="container" data-aos="fade-up">
-        <div className="row flex flex-wrap my-2">
-          <div className="col flex justify-center items-center w-full">
-            <div className="section-header mx-3 w-[100%] max-w-[700px] text-center space-y-6">
-              <h1 className="hero-title font-bold text-3xl sm:text-4xl md:text-[45px]">
-                My Quality Work
-              </h1>
-              <p className="text-base md:text-lg text-center text-white">
-                Every project I create is a unique piece, crafted to bring your
-                vision to life with innovative design and technology.
-              </p>
-            </div>
+      <span
+        className="absolute top-1/2 right-[41%] w-[322px] h-[322px] rounded-full pointer-events-none z-0"
+        style={{
+          background:
+            "linear-gradient(260deg, #8b53fd 0%, rgba(115, 67, 210, 0) 100%)",
+          filter: "blur(150px)",
+        }}
+      ></span>
+      <div className="container relative z-10" data-aos="fade-up">
+        {/* Header */}
+        <div className="section-header mx-auto w-full max-w-[700px] text-center space-y-4 mb-10">
+          <h1 className="font-bold text-3xl sm:text-4xl md:text-[45px] text-white">
+            My Quality{" "}
+            <span
+              style={{
+                background: "linear-gradient(135deg, #a78bfa 0%, #693dc3 100%)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Work
+            </span>
+          </h1>
+          <div className="flex items-center justify-center gap-3">
+            <span className="h-px w-12 bg-[#693dc3]/50"></span>
+            <span className="w-2 h-2 rotate-45 bg-[#a78bfa]"></span>
+            <span className="h-px w-12 bg-[#693dc3]/50"></span>
+          </div>
+          <p className="text-base md:text-lg text-white/70">
+            Every project I create is a unique piece, crafted to bring your
+            vision to life with innovative design and technology.
+          </p>
+        </div>
+
+        {/* Filter tabs */}
+        <div className="flex justify-center mb-10">
+          <div className="inline-flex flex-wrap justify-center gap-1 p-1.5 rounded-full bg-white/5 border border-white/10">
+            {PROJECT_CATEGORIES.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  activeCategory === category
+                    ? "text-white"
+                    : "text-white/60 hover:text-white"
+                }`}
+                style={
+                  activeCategory === category
+                    ? {
+                        background:
+                          "linear-gradient(135deg, #8c56fb 0%, #693dc3 100%)",
+                      }
+                    : undefined
+                }
+              >
+                {category}
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* small tabs section */}
-        <nav className="flex justify-center items-center space-x-2">
-          <ul className="bg-black w-full md:w-[80%] lg:w-[60%] xl:w-[40%] 2xl:w-[30%] p-4 z-10 text-white flex justify-center items-center gap-2 md:gap-10 rounded-md mt-2">
-            <div
-              className={`item01 cursor-pointer ${
-                activeTab === "tab1" ? "bg-[#693dc3]" : ""
-              } transition-all duration-300 p-2 rounded-3xl`}
-              onClick={() => handleSetTab("tab1")}
-            >
-              ALL
-            </div>
-            <div
-              className={`item01 cursor-pointer ${
-                activeTab === "UI/UX" ? "bg-[#693dc3]" : ""
-              } transition-all duration-300 p-2 rounded-3xl`}
-              onClick={() => handleSetTab("UI/UX")}
-            >
-              UX/UI
-            </div>
-            <div
-              className={`item01 cursor-pointer ${
-                activeTab === "Branding" ? "bg-[#693dc3]" : ""
-              } transition-all duration-300 p-2 rounded-3xl`}
-              onClick={() => handleSetTab("Branding")}
-            >
-              Branding
-            </div>
-            <div
-              className={`item01 cursor-pointer ${
-                activeTab === "App" ? "bg-[#693dc3]" : ""
-              } transition-all duration-300 p-2 rounded-3xl`}
-              onClick={() => handleSetTab("App")}
-            >
-              App
-            </div>
-          </ul>
-        </nav>
-
-        {/* cards section here */}
-        <div
-          className={`cards flex justify-center items-center flex-wrap w-full gap-10 z-10 my-10 px-4 ${
-            isTransitioning
-              ? ""
-              : activeTab === "tab1"
-              ? "card-ALL"
-              : activeTab === "UI/UX"
-              ? "card-UI-UX"
-              : activeTab === "Branding"
-              ? "card-Branding"
-              : activeTab === "App"
-              ? "card-App"
-              : ""
-          }`}
-        >
-          {filteredCards.map((card, index) => (
-            <Card
-              key={index}
-              imgSrc={card.imgSrc}
-              title={card.title}
-              description={card.description}
-              tab={card.tab}
-              link={card.link}
+        {/* Bento grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 z-10">
+          {filteredProjects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              onOpen={setSelectedProject}
             />
           ))}
         </div>
+
+        {/* Earlier / practice projects */}
+        <div className="flex justify-center mt-10">
+          <button
+            onClick={() => setShowEarlier((v) => !v)}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+          >
+            {showEarlier ? "Hide Earlier Projects" : "View Earlier Projects"}
+            {showEarlier ? (
+              <ChevronUp className="w-4 h-4" />
+            ) : (
+              <ChevronDown className="w-4 h-4" />
+            )}
+          </button>
+        </div>
+
+        {showEarlier && (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-6">
+            {EARLIER_PROJECTS.map((project, index) => (
+              <a
+                key={index}
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative rounded-xl overflow-hidden border border-white/10 aspect-square"
+              >
+                <Image
+                  src={project.imgSrc}
+                  alt={project.title}
+                  fill
+                  sizes="200px"
+                  placeholder="blur"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-2">
+                  <span className="text-white text-xs text-center font-medium">
+                    {project.title}
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
       </div>
+
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </div>
   );
 }
