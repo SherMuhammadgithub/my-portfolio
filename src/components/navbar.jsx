@@ -1,191 +1,152 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 
+const NAV_LINKS = [
+  { to: "home", label: "Home" },
+  { to: "services", label: "Services" },
+  { to: "portfolio", label: "Projects" },
+  { to: "Resume", label: "Resume" },
+];
+
+const CONTACT_EMAIL = "muhammadiqbalshermuhammad@gmail.com";
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 0);
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navbarClasses = `fixed top-0 text-white left-0 w-full p-6 md:p-8 md:px-16 z-50 transition-all duration-300 ease-in-out ${isScrolled ? "bg-black shadow-lg shadow-indigo-500/50" : "bg-transparent"
+  const navbarClasses = `fixed top-0 left-0 w-full z-50 px-6 md:px-10 py-4 transition-all duration-300 ease-in-out ${
+    isScrolled
+      ? "bg-black/90 backdrop-blur-sm shadow-lg shadow-black/40"
+      : "bg-transparent"
+  }`;
+
+  const desktopLinkClass = (section) =>
+    `relative inline-block pb-2 cursor-pointer transition-colors duration-200 after:absolute after:left-0 after:-bottom-0 after:h-[2px] after:bg-[#a78bfa] after:rounded-full after:transition-all after:duration-300 ${
+      activeSection === section
+        ? "text-[#a78bfa] after:w-full"
+        : "text-white/90 hover:text-white after:w-0"
     }`;
 
   return (
     <nav className={navbarClasses}>
-      <div className="flex items-center justify-between w-full">
-        <div className="header">
-          <h1 className="text-3xl md:text-4xl font-bold overflow-hidden">
-            CodeEz
-          </h1>
-        </div>
-        <ul className="text-sm space-x-10 uppercase tracking-widest hidden lg:block">
-          <li className="inline-block cursor-pointer ">
-            <Link to="home" smooth={true} duration={500}>
-              Home
-            </Link>
-          </li>
-          <li className="inline-block cursor-pointer">
-            <Link to="services" smooth={true} duration={500}>
-              Services
-            </Link>
-          </li>
-          <li className="inline-block cursor-pointer">
-            <Link to="portfolio" smooth={true} duration={500}>
-              Portfolio
-            </Link>
-          </li>
-          <li className="inline-block cursor-pointer">
-            <Link to="Resume" smooth={true} duration={500}>
-              Resume
-            </Link>
-          </li>
-          <li className="inline-block cursor-pointer">
-            <Link to="skills" smooth={true} duration={500}>
-              skills
-            </Link>
-          </li>
-          <li className="inline-block cursor-pointer">
-            <Link to="testimonails" smooth={true} duration={500}>
-              testimonails
-            </Link>
-          </li>
-        </ul>
-        <a
-          href="mailto:muhammadiqbalshermuhammad@gmail.com"
-          className="relative lg:inline-flex hidden items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow transition-all duration-150 ease-in-out rounded-xl hover:pl-10 hover:pr-6 border-2 border-white text-white dark:text-white dark:hover:text-gray-200 dark:shadow-none group cursor-pointer"
+      <div className="flex items-center justify-between w-full text-white">
+        {/* Logo (left) */}
+        <Link
+          to="home"
+          smooth={true}
+          duration={500}
+          className="flex items-center gap-3 cursor-pointer shrink-0"
         >
-          <span className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-[#693dc3] group-hover:h-full"></span>
-          <span className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              fill="none"
-              className="w-5 h-5 text-green-400"
-            >
-              <path
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-                strokeWidth="2"
-                strokeLinejoin="round"
-                strokeLinecap="round"
-              ></path>
-            </svg>
+          <span
+            className="text-3xl md:text-4xl font-black italic leading-none tracking-tight shrink-0"
+            style={{
+              background: "linear-gradient(135deg, #a78bfa 0%, #693dc3 100%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            SM
           </span>
-          <span className="absolute left-0 pl-2.5 -translate-x-12 group-hover:translate-x-0 ease-out duration-200">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              fill="none"
-              className="w-5 h-5 text-green-400"
-            >
-              <path
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-                strokeWidth="2"
-                strokeLinejoin="round"
-                strokeLinecap="round"
-              ></path>
-            </svg>
+          <span className="text-lg md:text-xl font-bold whitespace-nowrap hidden sm:block">
+            Sher Muhammad
           </span>
-          <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200">
-            Contact
-          </span>
-        </a>
+        </Link>
 
+        {/* Right-side cluster: nav links + Hire Me grouped together, like the mockup */}
+        <div className="hidden lg:flex items-center gap-10">
+          <ul className="flex items-center gap-8 text-base font-medium">
+            {NAV_LINKS.map((link) => (
+              <li key={link.to}>
+                <Link
+                  to={link.to}
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  onSetActive={() => setActiveSection(link.to)}
+                  className={desktopLinkClass(link.to)}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href={`mailto:${CONTACT_EMAIL}?subject=Let's work together`}
+            className="inline-flex items-center px-6 py-2.5 text-sm font-semibold text-white transition-transform duration-200 hover:scale-105 shrink-0"
+            style={{
+              background: "linear-gradient(135deg, #8c56fb 0%, #693dc3 100%)",
+              borderRadius: "10px",
+            }}
+          >
+            Hire Me
+          </a>
+        </div>
+
+          <button
+            className="lg:hidden relative w-8 h-6"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+          >
+            <span
+              className={`block absolute h-0.5 w-full bg-white transition-all duration-300 ease-in-out ${
+                isMenuOpen ? "rotate-45 top-2.5" : "top-0"
+              }`}
+            ></span>
+            <span
+              className={`block absolute h-0.5 w-full bg-white transition-all duration-300 ease-in-out ${
+                isMenuOpen ? "opacity-0" : "top-2.5"
+              }`}
+            ></span>
+            <span
+              className={`block absolute h-0.5 w-full bg-white transition-all duration-300 ease-in-out ${
+                isMenuOpen ? "-rotate-45 top-2.5" : "top-5"
+              }`}
+            ></span>
+          </button>
       </div>
-      <div className="hamburger absolute right-4 top-[1.7rem] md:top-10 rotate-180 mx-10">
-        <button
-          className="block lg:hidden focus:outline-none"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          <div className="relative w-8 h-6">
-            <span
-              className={`block absolute h-0.5 w-full bg-white transform transition-all duration-300 ease-in-out ${isMenuOpen ? "rotate-45 top-2.5" : "top-0"
-                }`}
-            ></span>
-            <span
-              className={`block absolute h-0.5 w-full bg-white transition-all duration-300 ease-in-out ${isMenuOpen ? "opacity-0" : "top-2.5"
-                }`}
-            ></span>
-            <span
-              className={`block absolute h-0.5 w-full bg-white transform transition-all duration-300 ease-in-out ${isMenuOpen ? "-rotate-45 top-2.5" : "top-5"
-                }`}
-            ></span>
-          </div>
-        </button>
-      </div>
+
+      {/* Mobile menu */}
       <div
-        className={`${isMenuOpen ? "translate-x-0" : "-translate-x-full"
-          } lg:hidden fixed inset-y-0 left-0 w-64 bg-[#110818] text-white transform transition-transform duration-300 ease-in-out`}
+        className={`${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        } lg:hidden fixed inset-y-0 left-0 w-64 bg-[#110818] text-white transform transition-transform duration-300 ease-in-out z-40`}
       >
-        <ul className="text-center space-y-10 mt-10">
-          <li className="cursor-pointer">
-            <Link
-              to="home"
-              smooth={true}
-              duration={500}
+        <ul className="text-center space-y-8 mt-24">
+          {NAV_LINKS.map((link) => (
+            <li key={link.to} className="cursor-pointer">
+              <Link
+                to={link.to}
+                smooth={true}
+                duration={500}
+                onClick={() => setIsMenuOpen(false)}
+                className="text-lg cursor-pointer"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+          <li>
+            <a
+              href={`mailto:${CONTACT_EMAIL}?subject=Let's work together`}
               onClick={() => setIsMenuOpen(false)}
+              className="inline-block mt-2 px-6 py-2.5 text-sm font-semibold text-white"
+              style={{
+                background: "linear-gradient(135deg, #8c56fb 0%, #693dc3 100%)",
+                borderRadius: "10px",
+              }}
             >
-              Home
-            </Link>
-          </li>
-          <li className="cursor-pointer">
-            <Link
-              to="services"
-              smooth={true}
-              duration={500}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Services
-            </Link>
-          </li>
-          <li className="cursor-pointer">
-            <Link
-              to="portfolio"
-              smooth={true}
-              duration={500}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Portfolio
-            </Link>
-          </li>
-          <li className="cursor-pointer">
-            <Link
-              to="Resume"
-              smooth={true}
-              duration={500}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Resume
-            </Link>
-          </li>
-          <li className="cursor-pointer">
-            <Link
-              to="skills"
-              smooth={true}
-              duration={500}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              skills
-            </Link>
-          </li>
-          <li className="cursor-pointer">
-            <Link
-              to="testimonails"
-              smooth={true}
-              duration={500}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              testimonails
-            </Link>
+              Hire Me
+            </a>
           </li>
         </ul>
       </div>

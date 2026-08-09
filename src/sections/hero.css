@@ -23,32 +23,6 @@
     z-index: 0;
     overflow: hidden;
 }
-/* setting webkit for HI letter */
-.text-style{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 15rem;
-    font-weight: 900;
-    color: #693dc3;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 1px ;
-    animation: stroke 5s infinite;
-    z-index: -1;
-}
-
-@keyframes stroke {
-    0% {
-        font-size: 15rem;
-    }
-    50% {
-        font-size: 18rem;
-    }
-    100% {
-        font-size: 15rem;
-    }
-}
 /* hero-title */
 .hero-title{
     color: white;
