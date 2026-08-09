@@ -1,0 +1,10 @@
+Project description.
+
+CallDraft is an AI voice agent that enables live speech-to-speech conversations in the browser with sub-800ms latency. Contributed to integrating OpenAI's Realtime API with ephemeral token authentication over WebRTC for secure, low-latency audio streaming. The interface includes a live transcript, call timer, and response latency indicator. Next.js and TypeScript on the frontend with WebRTC handling real-time audio communication.
+Skills and deliverables
+
+Next.js
+OpenAPI
+WebRTC
+TypeScript
+AI Development

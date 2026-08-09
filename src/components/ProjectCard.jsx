@@ -4,7 +4,7 @@ import { Play, Star, Lock, ArrowRight } from "lucide-react";
 const SIZE_CLASSES = {
   featured: "md:col-span-2 min-h-[340px] md:min-h-[420px]",
   tall: "md:col-span-1 min-h-[340px] md:min-h-[420px]",
-  normal: "md:col-span-1 min-h-[240px]",
+  normal: "md:col-span-1 min-h-[300px]",
 };
 
 export default function ProjectCard({ project, onOpen }) {
@@ -27,7 +27,7 @@ export default function ProjectCard({ project, onOpen }) {
           <img
             src={thumbnail.poster || thumbnail.src}
             alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-full object-cover blur-[2px] scale-105 transition-transform duration-500 group-hover:scale-110"
           />
         ) : (
           <div
@@ -46,7 +46,7 @@ export default function ProjectCard({ project, onOpen }) {
             )}
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/25" />
       </div>
 
       {/* Featured badge */}

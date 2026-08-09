@@ -1,0 +1,13 @@
+My role. Full-Stack Developer
+
+Project description.
+
+Services Pro is a full-stack home services booking platform where customers book electrical, plumbing, HVAC, carpentry, and locksmith services through a 4-step wizard: select service, pick date and time, enter details, and pay. Contributed to the admin dashboard with month/week/day calendar views, service filters, an upcoming bookings panel, and edit/delete controls. An AI chatbot walks users through the booking process. Multi-language support (US/EN) and a dark mode are included.
+Skills and deliverables
+
+Node.js
+Next.js
+REST API
+AI Chatbot
+Web Development
+Published on Jul 5, 2026

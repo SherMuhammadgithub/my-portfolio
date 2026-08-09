@@ -1,6 +1,6 @@
 "use client";
 import heroImage from "/public/hero.png";
-import resume from "/public/resume.pdf";
+import resume from "/public/Sher_Muhammad_Resume.pdf";
 import Image from "next/image";
 import { FaFacebookSquare, FaLinkedin, FaGithubSquare } from "react-icons/fa";
 import { Download, Code2, Briefcase, Users, Layers } from "lucide-react";
@@ -113,10 +113,11 @@ export default function Hero() {
               <span className="block text-xl lg:text-2xl font-semibold font-[Playball] tracking-widest text-[#a78bfa]">
                 Sher Muhammad
               </span>
-              <h1 className="font-bold text-4xl lg:text-7xl text-white">
-                Web Developer <span className="text-[#8c56fb]">+</span>
+              <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl text-white">
+                Full-Stack Developer
                 <br />
-                <span className="text-[#a78bfa]">UX Designer</span>
+                <span className="text-[#8c56fb]">+</span>{" "}
+                <span className="text-[#a78bfa]">Real-Time Systems</span>
               </h1>
             </div>
 
@@ -136,8 +137,9 @@ export default function Hero() {
             </div>
 
             <p className="max-w-[550px] w-full text-lg lg:text-[20px] text-white/80">
-              I break down complex user experience problems to create
-              integrity-focused solutions that connect billions of people.
+              Full-stack developer with 2+ years of production experience —
+              building everything from enterprise vehicle surveillance
+              systems and AI voice agents to e-commerce platforms.
             </p>
 
             <div className="button-box pt-2 flex justify-center md:justify-start flex-wrap items-center gap-6 md:gap-10">

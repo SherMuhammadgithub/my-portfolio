@@ -1,0 +1,13 @@
+My role. Frontend Developer
+
+Project description.
+
+Built a personal portfolio website with a dark space-themed design and smooth animations throughout. Used Framer Motion for scroll-triggered reveals, hero entrance animations, and hover interactions across all sections. The site covers Services, Portfolio, Resume, Skills, and Testimonials, with a hero section featuring a CV download button and animated particle background. Built with Next.js for fast routing and optimized load performance. Frontend only, no backend.
+Skills and deliverables
+
+Next.js
+Framer
+Tailwind CSS
+UI/UX Prototyping
+Responsive Design
+Published on Jul 5, 2026

@@ -2,29 +2,29 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Code2, PenTool, Smartphone, ArrowRight } from "lucide-react";
+import { Layers, Radio, Sparkles, ArrowRight } from "lucide-react";
 
 const SERVICES = [
   {
     count: "01",
-    title: "Web Developer",
+    title: "Full-Stack Development",
     description:
-      "I break down complex user experience problems to create integrity-focused solutions that connect billions of people",
-    icon: Code2,
+      "End-to-end web apps with Angular, React, or Next.js on the frontend and NestJS or Node.js backends, backed by PostgreSQL — built, tested, and deployed.",
+    icon: Layers,
   },
   {
     count: "02",
-    title: "UX Designer",
+    title: "Real-Time & Backend Systems",
     description:
-      "I break down complex user experience problems to create integrity-focused solutions that connect billions of people",
-    icon: PenTool,
+      "Live streaming pipelines, WebSocket gateways, and distributed backends — the kind of infrastructure behind vehicle surveillance platforms and real-time billing engines.",
+    icon: Radio,
   },
   {
     count: "03",
-    title: "App Developer",
+    title: "AI Integration",
     description:
-      "I break down complex user experience problems to create integrity-focused solutions that connect billions of people",
-    icon: Smartphone,
+      "AI voice agents, RAG chat pipelines, and semantic search — wiring OpenAI's Realtime API, LangChain, and vector databases into real products.",
+    icon: Sparkles,
   },
 ];
 
@@ -39,11 +39,11 @@ export default function Services() {
       id="services"
       className="py-4 md:py-16 bg-[#050709] text-white flex justify-center items-center overflow-hidden"
     >
-      <div className="container" data-aos="fade-up">
+      <div className="container mx-auto px-4" data-aos="fade-up">
         <div className="row flex flex-wrap my-2">
           <div className="col flex justify-center items-center w-full">
-            <div className="section-header mx-3 w-[100%] max-w-[700px] text-center space-y-4">
-              <h1 className="font-bold text-3xl sm:text-4xl md:text-[45px]">
+            <div className="section-header mx-3 w-[100%] max-w-[700px] text-center space-y-4 mb-12">
+              <h2 className="font-bold text-3xl sm:text-4xl md:text-[45px]">
                 My Quality{" "}
                 <span
                   style={{
@@ -56,15 +56,15 @@ export default function Services() {
                 >
                   Services
                 </span>
-              </h1>
+              </h2>
               <div className="flex items-center justify-center gap-3">
                 <span className="h-px w-12 bg-[#693dc3]/50"></span>
                 <span className="w-2 h-2 rotate-45 bg-[#a78bfa]"></span>
                 <span className="h-px w-12 bg-[#693dc3]/50"></span>
               </div>
               <p className="text-base md:text-lg text-center text-white/70">
-                I put your ideas and thus your wishes in the form of a unique
-                web project that inspires you and your customers.
+                Full-stack development, real-time systems, and AI
+                integration — the core of every project I build.
               </p>
             </div>
           </div>
@@ -80,7 +80,7 @@ export default function Services() {
                   key={service.count}
                   onMouseEnter={() => setActiveIndex(index)}
                   onMouseLeave={() => setActiveIndex(null)}
-                  className={`flex items-stretch rounded-2xl border overflow-hidden cursor-pointer transition-all duration-300 ${
+                  className={`flex flex-col sm:flex-row rounded-2xl border overflow-hidden cursor-pointer transition-all duration-300 ${
                     isActive
                       ? "border-[#8c56fb] shadow-lg shadow-[#693dc3]/30"
                       : "border-white/10"
@@ -96,7 +96,7 @@ export default function Services() {
                 >
                   {/* Number panel */}
                   <div
-                    className={`w-16 sm:w-24 md:w-32 shrink-0 flex items-center justify-center ${
+                    className={`w-full h-12 sm:h-auto sm:w-16 md:w-24 lg:w-32 shrink-0 flex items-center justify-center ${
                       isActive ? "bg-white/10" : "bg-white/[0.03]"
                     }`}
                   >

@@ -1,51 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { ChevronDown, ChevronUp } from "lucide-react";
-import work1 from "/public/work-1.png";
-import work2 from "/public/work-2.png";
-import work3 from "/public/work-3.png";
-import work4 from "/public/work-4.png";
-import work5 from "/public/work-5.png";
-import work6 from "/public/solitaire-game.png";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectModal from "@/components/ProjectModal";
 import { PROJECTS, PROJECT_CATEGORIES } from "@/data/projects";
-
-const EARLIER_PROJECTS = [
-  {
-    imgSrc: work1,
-    title: "Xpense Tracker App",
-    link: "https://www.xpensetracker.live/",
-  },
-  {
-    imgSrc: work2,
-    title: "Image Search App",
-    link: "https://imgchinaedition.netlify.app/",
-  },
-  {
-    imgSrc: work3,
-    title: "Earlier Portfolio Website",
-    link: "http://shertec.me/company-portfolio/",
-  },
-  {
-    imgSrc: work4,
-    title: "Books App",
-    link: "https://book-app-frontend-virid.vercel.app/",
-  },
-  {
-    imgSrc: work5,
-    title: "Shoe Store App",
-    link: "http://shertec.me/TRENDY-THREDS-SHOES/",
-  },
-  {
-    imgSrc: work6,
-    title: "Solitaire Game",
-    link: "http://shertec.me/Solitaire-game/",
-  },
-];
 
 export default function RecentWorks() {
   useEffect(() => {
@@ -54,7 +13,6 @@ export default function RecentWorks() {
 
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState(null);
-  const [showEarlier, setShowEarlier] = useState(false);
 
   const filteredProjects =
     activeCategory === "All"
@@ -64,7 +22,7 @@ export default function RecentWorks() {
   return (
     <div
       id="portfolio"
-      className="relative flex justify-center w-full p-4 md:py-16 overflow-hidden bg-[#110818]"
+      className="relative flex justify-center w-full py-4 md:py-16 overflow-hidden bg-[#110818]"
     >
       <span
         className="absolute top-1/2 right-[41%] w-[322px] h-[322px] rounded-full pointer-events-none z-0"
@@ -74,10 +32,10 @@ export default function RecentWorks() {
           filter: "blur(150px)",
         }}
       ></span>
-      <div className="container relative z-10" data-aos="fade-up">
+      <div className="container mx-auto px-4 relative z-10" data-aos="fade-up">
         {/* Header */}
-        <div className="section-header mx-auto w-full max-w-[700px] text-center space-y-4 mb-10">
-          <h1 className="font-bold text-3xl sm:text-4xl md:text-[45px] text-white">
+        <div className="section-header mx-auto w-full max-w-[700px] text-center space-y-4 mb-12">
+          <h2 className="font-bold text-3xl sm:text-4xl md:text-[45px] text-white">
             My Quality{" "}
             <span
               style={{
@@ -89,7 +47,7 @@ export default function RecentWorks() {
             >
               Work
             </span>
-          </h1>
+          </h2>
           <div className="flex items-center justify-center gap-3">
             <span className="h-px w-12 bg-[#693dc3]/50"></span>
             <span className="w-2 h-2 rotate-45 bg-[#a78bfa]"></span>
@@ -103,7 +61,12 @@ export default function RecentWorks() {
 
         {/* Filter tabs */}
         <div className="flex justify-center mb-10">
-          <div className="inline-flex flex-wrap justify-center gap-1 p-1.5 rounded-full bg-white/5 border border-white/10">
+          <div
+            className="inline-flex flex-wrap justify-center gap-1 p-1.5 rounded-2xl sm:rounded-full bg-[#0b0710] border border-[#8c56fb]/25"
+            style={{
+              boxShadow: "0 0 40px -12px rgba(140, 86, 251, 0.35)",
+            }}
+          >
             {PROJECT_CATEGORIES.map((category) => (
               <button
                 key={category}
@@ -117,7 +80,8 @@ export default function RecentWorks() {
                   activeCategory === category
                     ? {
                         background:
-                          "linear-gradient(135deg, #8c56fb 0%, #693dc3 100%)",
+                          "linear-gradient(135deg, #9d6bff 0%, #7c3aed 100%)",
+                        boxShadow: "0 0 20px -2px rgba(157, 107, 255, 0.7)",
                       }
                     : undefined
                 }
@@ -138,49 +102,6 @@ export default function RecentWorks() {
             />
           ))}
         </div>
-
-        {/* Earlier / practice projects */}
-        <div className="flex justify-center mt-10">
-          <button
-            onClick={() => setShowEarlier((v) => !v)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
-          >
-            {showEarlier ? "Hide Earlier Projects" : "View Earlier Projects"}
-            {showEarlier ? (
-              <ChevronUp className="w-4 h-4" />
-            ) : (
-              <ChevronDown className="w-4 h-4" />
-            )}
-          </button>
-        </div>
-
-        {showEarlier && (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-6">
-            {EARLIER_PROJECTS.map((project, index) => (
-              <a
-                key={index}
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative rounded-xl overflow-hidden border border-white/10 aspect-square"
-              >
-                <Image
-                  src={project.imgSrc}
-                  alt={project.title}
-                  fill
-                  sizes="200px"
-                  placeholder="blur"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-2">
-                  <span className="text-white text-xs text-center font-medium">
-                    {project.title}
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-        )}
       </div>
 
       <ProjectModal

@@ -1,0 +1,10 @@
+Project description.
+
+Volvox is a research assistant app for managing documents and pulling insights from them faster. Users upload documents, chat with an AI that answers based on that content (RAG), get summaries of documents or YouTube videos, and revisit past chats. I built the full stack: FastAPI and MongoDB backend with a LangChain, FAISS, and Gemini RAG pipeline, plus a Next.js/TypeScript frontend with HeroUI and Tailwind. Handled auth, document CRUD, chat history, and Dockerized the backend.
+Skills and deliverables
+
+Next.js
+LangChain
+Gemini
+Python
+Docker

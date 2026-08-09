@@ -17,11 +17,17 @@ import { getTechIcon } from "@/lib/techIcons";
 
 export default function ProjectModal({ project, onClose }) {
   const [activeMedia, setActiveMedia] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
   const mediaBoxRef = useRef(null);
 
   useEffect(() => {
     setActiveMedia(0);
+    setIsPlaying(false);
   }, [project]);
+
+  useEffect(() => {
+    setIsPlaying(false);
+  }, [activeMedia]);
 
   useEffect(() => {
     if (!project) return;
@@ -69,14 +75,16 @@ export default function ProjectModal({ project, onClose }) {
         onClick={onClose}
       ></div>
 
-      <div className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-2xl border border-white/10 bg-[#0b0710] text-white shadow-2xl">
-        <button
-          onClick={onClose}
-          aria-label="Close"
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 border border-white/10 flex items-center justify-center hover:bg-black/80 transition-colors"
-        >
-          <X className="w-5 h-5" />
-        </button>
+      <div className="relative w-full max-w-7xl max-h-[90vh] overflow-y-auto rounded-2xl border border-white/10 bg-[#0b0710] text-white shadow-2xl">
+        <div className="flex items-center justify-end px-4 py-3 border-b border-white/10 sticky top-0 bg-[#0b0710] z-20">
+          <button
+            onClick={onClose}
+            aria-label="Close"
+            className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-[380px_1fr]">
           {/* Left: details */}
@@ -214,6 +222,9 @@ export default function ProjectModal({ project, onClose }) {
                   key={current.src}
                   controls
                   poster={current.poster}
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
+                  onEnded={() => setIsPlaying(false)}
                   className="w-full h-full object-cover"
                 >
                   <source src={current.src} />
@@ -239,7 +250,7 @@ export default function ProjectModal({ project, onClose }) {
                 </div>
               )}
 
-              {current?.type === "video" && (
+              {current?.type === "video" && !isPlaying && (
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                   <div className="w-16 h-16 rounded-full bg-[#8c56fb]/90 flex items-center justify-center">
                     <Play className="w-6 h-6 text-white fill-white ml-0.5" />
@@ -305,23 +316,34 @@ export default function ProjectModal({ project, onClose }) {
             )}
 
             {project.highlights?.length > 0 && (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-2">
-                {project.highlights.map((item, index) => {
-                  const HIcon = item.icon;
-                  return (
-                    <div key={index} className="space-y-1.5">
-                      <div className="w-9 h-9 rounded-lg bg-[#693dc3]/15 border border-[#693dc3]/30 flex items-center justify-center">
-                        <HIcon className="w-4 h-4 text-[#a78bfa]" />
+              <div className="space-y-3 pt-2">
+                <h3 className="flex items-center gap-2 text-sm font-semibold text-white">
+                  <span className="w-1 h-4 rounded-full bg-[#8c56fb]"></span>
+                  Highlights
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {project.highlights.map((item, index) => {
+                    const HIcon = item.icon;
+                    return (
+                      <div
+                        key={index}
+                        className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4 transition-colors hover:border-[#8c56fb]/50"
+                      >
+                        <div className="w-10 h-10 shrink-0 rounded-lg bg-[#693dc3]/15 border border-[#693dc3]/30 flex items-center justify-center">
+                          <HIcon className="w-5 h-5 text-[#a78bfa]" />
+                        </div>
+                        <div>
+                          <div className="text-sm font-semibold text-white">
+                            {item.title}
+                          </div>
+                          <div className="text-xs text-white/60 leading-snug mt-0.5">
+                            {item.description}
+                          </div>
+                        </div>
                       </div>
-                      <div className="text-sm font-semibold text-white">
-                        {item.title}
-                      </div>
-                      <div className="text-xs text-white/60 leading-snug">
-                        {item.description}
-                      </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
             )}
           </div>

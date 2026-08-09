@@ -1,5 +1,8 @@
+"use client";
 import { useEffect, useState } from "react";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import NextLink from "next/link";
+import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { to: "home", label: "Home" },
@@ -14,6 +17,8 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 0);
@@ -35,48 +40,83 @@ export default function Navbar() {
     }`;
 
   return (
+    <>
     <nav className={navbarClasses}>
       <div className="flex items-center justify-between w-full text-white">
         {/* Logo (left) */}
-        <Link
-          to="home"
-          smooth={true}
-          duration={500}
-          className="flex items-center gap-3 cursor-pointer shrink-0"
-        >
-          <span
-            className="text-3xl md:text-4xl font-black italic leading-none tracking-tight shrink-0"
-            style={{
-              background: "linear-gradient(135deg, #a78bfa 0%, #693dc3 100%)",
-              WebkitBackgroundClip: "text",
-              backgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
+        {isHome ? (
+          <ScrollLink
+            to="home"
+            smooth={true}
+            duration={500}
+            className="flex items-center gap-3 cursor-pointer shrink-0"
           >
-            SM
-          </span>
-          <span className="text-lg md:text-xl font-bold whitespace-nowrap hidden sm:block">
-            Sher Muhammad
-          </span>
-        </Link>
+            <span
+              className="text-3xl md:text-4xl font-black italic leading-none tracking-tight shrink-0"
+              style={{
+                background: "linear-gradient(135deg, #a78bfa 0%, #693dc3 100%)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              SM
+            </span>
+            <span className="text-lg md:text-xl font-bold whitespace-nowrap hidden sm:block">
+              Sher Muhammad
+            </span>
+          </ScrollLink>
+        ) : (
+          <NextLink
+            href="/"
+            className="flex items-center gap-3 cursor-pointer shrink-0"
+          >
+            <span
+              className="text-3xl md:text-4xl font-black italic leading-none tracking-tight shrink-0"
+              style={{
+                background: "linear-gradient(135deg, #a78bfa 0%, #693dc3 100%)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              SM
+            </span>
+            <span className="text-lg md:text-xl font-bold whitespace-nowrap hidden sm:block">
+              Sher Muhammad
+            </span>
+          </NextLink>
+        )}
 
         {/* Right-side cluster: nav links + Hire Me grouped together, like the mockup */}
         <div className="hidden lg:flex items-center gap-10">
           <ul className="flex items-center gap-8 text-base font-medium">
-            {NAV_LINKS.map((link) => (
-              <li key={link.to}>
-                <Link
-                  to={link.to}
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  onSetActive={() => setActiveSection(link.to)}
-                  className={desktopLinkClass(link.to)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) =>
+              isHome ? (
+                <li key={link.to}>
+                  <ScrollLink
+                    to={link.to}
+                    smooth={true}
+                    duration={500}
+                    offset={-100}
+                    spy={true}
+                    onSetActive={() => setActiveSection(link.to)}
+                    className={desktopLinkClass(link.to)}
+                  >
+                    {link.label}
+                  </ScrollLink>
+                </li>
+              ) : (
+                <li key={link.to}>
+                  <NextLink
+                    href={`/#${link.to}`}
+                    className="text-white/90 hover:text-white transition-colors duration-200"
+                  >
+                    {link.label}
+                  </NextLink>
+                </li>
+              )
+            )}
           </ul>
 
           <a
@@ -114,27 +154,49 @@ export default function Navbar() {
             ></span>
           </button>
       </div>
+    </nav>
+
+      {/* Mobile menu backdrop */}
+      {isMenuOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-black/70 z-[90]"
+          onClick={() => setIsMenuOpen(false)}
+        ></div>
+      )}
 
       {/* Mobile menu */}
       <div
         className={`${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
-        } lg:hidden fixed inset-y-0 left-0 w-64 bg-[#110818] text-white transform transition-transform duration-300 ease-in-out z-40`}
+        } lg:hidden fixed inset-y-0 left-0 w-64 bg-[#110818] text-white transform transition-transform duration-300 ease-in-out z-[95]`}
       >
         <ul className="text-center space-y-8 mt-24">
-          {NAV_LINKS.map((link) => (
-            <li key={link.to} className="cursor-pointer">
-              <Link
-                to={link.to}
-                smooth={true}
-                duration={500}
-                onClick={() => setIsMenuOpen(false)}
-                className="text-lg cursor-pointer"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
+          {NAV_LINKS.map((link) =>
+            isHome ? (
+              <li key={link.to} className="cursor-pointer">
+                <ScrollLink
+                  to={link.to}
+                  smooth={true}
+                  duration={500}
+                  offset={-100}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-lg cursor-pointer"
+                >
+                  {link.label}
+                </ScrollLink>
+              </li>
+            ) : (
+              <li key={link.to}>
+                <NextLink
+                  href={`/#${link.to}`}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-lg"
+                >
+                  {link.label}
+                </NextLink>
+              </li>
+            )
+          )}
           <li>
             <a
               href={`mailto:${CONTACT_EMAIL}?subject=Let's work together`}
@@ -150,6 +212,6 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
-    </nav>
+    </>
   );
 }

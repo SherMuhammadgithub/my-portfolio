@@ -7,8 +7,9 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "my Portfolio",
-  description: "Ready to solve your problems and make your life easier with my skills.",
+  title: "Sher Muhammad Iqbal — Full-Stack Developer | Angular, NestJS, Real-Time Systems",
+  description:
+    "Full-stack developer specializing in Angular, NestJS, and real-time systems — from enterprise vehicle surveillance platforms to AI voice agents and e-commerce backends.",
 };
 
 export default function RootLayout({ children }) {

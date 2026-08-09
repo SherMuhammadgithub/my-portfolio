@@ -15,29 +15,270 @@ import {
   MessageSquare,
   FileText,
   MessageCircle,
-  WifiOff,
   Lock,
   HeartPulse,
   Radio,
+  FileSearch,
+  Layout,
+  Workflow,
+  History,
+  Palette,
+  Wrench,
+  CalendarCheck,
+  GitBranch,
+  RefreshCw,
+  ShieldAlert,
 } from "lucide-react";
 
-export const PROJECT_CATEGORIES = ["All", "Full-Stack", "AI", "Real-Time", "Backend"];
+export const PROJECT_CATEGORIES = [
+  "All",
+  "Full-Stack",
+  "AI",
+  "Real-Time",
+  "Backend",
+  "Frontend",
+  "DevOps",
+];
 
-// media: [] for now — once you have real screenshots/clips, add entries like:
-//   { type: "image", src: "/projects/vxs-1.png" }
-//   { type: "video", src: "/projects/vxs-demo.mp4", poster: "/projects/vxs-poster.png" }
-// The first entry is used as the card thumbnail. A "video" entry as the first
-// item shows a play button on the card and opens the video player in the modal.
+// media: [] until real screenshots/clips exist for a project — falls back to a
+// gradient placeholder instead of a misleading stock image.
 //
-// link / codeLink: null until you have a public URL / repo to share — the UI
+// link / codeLink: null until there's a public URL / repo to share — the UI
 // falls back to a "Confidential" badge instead of a dead link.
 //
-// duration: intentionally left out until you give real per-project dates —
+// duration: intentionally left out until real per-project dates are given —
 // don't want to guess and have it not hold up if a client asks.
 export const PROJECTS = [
   {
-    id: "vxs",
+    id: "service-pro",
     size: "featured",
+    title: "Services Pro — Home Services Booking Platform",
+    shortTitle: "Services Pro",
+    tagline: "Book home services in a 4-step wizard, with an AI assistant",
+    role: "Full-Stack Developer",
+    type: "Company Project",
+    icon: Wrench,
+    description:
+      "Services Pro is a full-stack home services booking platform where customers book electrical, plumbing, HVAC, carpentry, and locksmith services through a 4-step wizard: select service, pick date and time, enter details, and pay. Contributed to the admin dashboard with month/week/day calendar views, service filters, an upcoming bookings panel, and edit/delete controls. An AI chatbot walks users through the booking process. Multi-language support (US/EN) and a dark mode are included.",
+    categories: ["Full-Stack", "AI"],
+    stack: ["Node.js", "Next.js", "REST API"],
+    highlights: [
+      {
+        icon: CalendarCheck,
+        title: "4-Step Booking Wizard",
+        description: "Service → date/time → details → payment",
+      },
+      {
+        icon: Sparkles,
+        title: "AI Booking Assistant",
+        description: "Chatbot walks users through the entire flow",
+      },
+      {
+        icon: KanbanSquare,
+        title: "Admin Calendar Dashboard",
+        description: "Month/week/day views with live service filters",
+      },
+      {
+        icon: Palette,
+        title: "Multi-Language & Dark Mode",
+        description: "US/EN support with full theme switching",
+      },
+    ],
+    media: [
+      {
+        type: "video",
+        src: "/projects/service-pro/service-pro-web.mp4",
+        poster: "/projects/service-pro/thumbail.png",
+      },
+    ],
+    link: null,
+    codeLink: null,
+  },
+  {
+    id: "calldraft",
+    size: "tall",
+    title: "CallDraft — AI Voice Agent",
+    shortTitle: "CallDraft",
+    tagline: "Sub-800ms browser-based AI voice conversations",
+    role: "Sole Developer",
+    type: "Personal Project",
+    icon: Mic,
+    description:
+      "CallDraft is an AI voice agent that enables live speech-to-speech conversations in the browser with sub-800ms latency. Integrated OpenAI's Realtime API with ephemeral token authentication over WebRTC for secure, low-latency audio streaming. The interface includes a live transcript, call timer, and response latency indicator.",
+    categories: ["AI", "Real-Time"],
+    stack: ["Next.js", "TypeScript", "OpenAI Realtime API", "WebRTC"],
+    highlights: [
+      {
+        icon: Zap,
+        title: "Sub-800ms Latency",
+        description: "Fast enough round trip for natural conversation flow",
+      },
+      {
+        icon: Radio,
+        title: "WebRTC Audio Streaming",
+        description: "Mic streams straight to OpenAI's Realtime API",
+      },
+      {
+        icon: KeyRound,
+        title: "Ephemeral Auth",
+        description: "Secure token flow, no API keys exposed to the browser",
+      },
+      {
+        icon: MessageSquare,
+        title: "Live Transcript",
+        description: "Real-time text of both sides of the conversation",
+      },
+    ],
+    media: [
+      {
+        type: "video",
+        src: "/projects/call-draft/call-draft-web.mp4",
+        poster: "/projects/call-draft/thumbnail.png",
+      },
+    ],
+    link: null,
+    codeLink: null,
+  },
+  {
+    id: "volvox",
+    size: "normal",
+    title: "Volvox — AI Research Assistant",
+    shortTitle: "Volvox",
+    tagline: "RAG-powered research assistant for documents & video",
+    role: "Full-Stack Developer — Sole Developer",
+    type: "Personal Project",
+    icon: FileSearch,
+    description:
+      "Volvox is a research assistant app for managing documents and pulling insights from them faster. Users upload documents, chat with an AI that answers based on that content (RAG), get summaries of documents or YouTube videos, and revisit past chats. Built the full stack: FastAPI and MongoDB backend with a LangChain, FAISS, and Gemini RAG pipeline, plus a Next.js/TypeScript frontend with HeroUI and Tailwind. Handled auth, document CRUD, chat history, and Dockerized the backend.",
+    categories: ["AI", "Full-Stack"],
+    stack: ["Next.js", "FastAPI", "MongoDB", "LangChain", "Gemini", "Docker"],
+    highlights: [
+      {
+        icon: Sparkles,
+        title: "RAG Chat Pipeline",
+        description: "LangChain + FAISS + Gemini answer from your own docs",
+      },
+      {
+        icon: FileText,
+        title: "Doc & Video Summaries",
+        description: "Condenses documents or YouTube videos on demand",
+      },
+      {
+        icon: History,
+        title: "Persistent Chat History",
+        description: "Revisit and continue past research sessions",
+      },
+      {
+        icon: Boxes,
+        title: "Dockerized Backend",
+        description: "FastAPI + MongoDB containerized for deployment",
+      },
+    ],
+    media: [
+      {
+        type: "video",
+        src: "/projects/volvox/volvox-web.mp4",
+        poster: "/projects/volvox/volvox_thumbnail.png",
+      },
+    ],
+    link: null,
+    codeLink: null,
+  },
+  {
+    id: "pm-suite",
+    size: "normal",
+    title: "PM Suite — Project Management Platform",
+    shortTitle: "PM Suite",
+    tagline: "Jira + Notion + Slack, combined into one tool",
+    role: "Full-Stack Developer — Angular focus",
+    type: "Company Project",
+    icon: KanbanSquare,
+    description:
+      "Full-stack project management platform combining Kanban boards, a Notion-style block document editor, integrated real-time team chat, KPI dashboards, and per-task time tracking — with full offline support as a PWA that syncs when connection restores.",
+    categories: ["Full-Stack"],
+    stack: ["Angular", "Deno", "PostgreSQL", "JWT/RBAC", "PWA"],
+    highlights: [
+      {
+        icon: KanbanSquare,
+        title: "Kanban Boards",
+        description: "Drag-and-drop task management with custom columns",
+      },
+      {
+        icon: FileText,
+        title: "Block Document Editor",
+        description: "20+ Notion-style content blocks, tables, embeds",
+      },
+      {
+        icon: MessageCircle,
+        title: "Built-In Team Chat",
+        description: "Real-time messaging with no external tool needed",
+      },
+      {
+        icon: Workflow,
+        title: "Automated CI/CD",
+        description: "Jenkins pipeline auto-builds, health-checks, and rolls back on failure",
+      },
+    ],
+    media: [
+      { type: "image", src: "/projects/project-management/thumbnail.png" },
+      { type: "image", src: "/projects/project-management/kanban.png" },
+      { type: "image", src: "/projects/project-management/note-editor.png" },
+      { type: "image", src: "/projects/project-management/chat.png" },
+      { type: "image", src: "/projects/project-management/timeline.png" },
+      { type: "image", src: "/projects/project-management/task-details.png" },
+      { type: "image", src: "/projects/project-management/time-tracker.png" },
+    ],
+    link: null,
+    codeLink: null,
+  },
+  {
+    id: "portfolio-site",
+    size: "normal",
+    title: "Client Portfolio Website",
+    shortTitle: "Portfolio Site",
+    tagline: "Dark space-themed portfolio with scroll-triggered animation",
+    role: "Frontend Developer",
+    type: "Freelance Project",
+    icon: Layout,
+    description:
+      "Built a personal portfolio website with a dark space-themed design and smooth animations throughout. Used Framer Motion for scroll-triggered reveals, hero entrance animations, and hover interactions across all sections. The site covers Services, Portfolio, Resume, Skills, and Testimonials, with a hero section featuring a CV download button and animated particle background. Built with Next.js for fast routing and optimized load performance. Frontend only, no backend.",
+    categories: ["Frontend"],
+    stack: ["Next.js", "Framer Motion", "Tailwind CSS"],
+    highlights: [
+      {
+        icon: Palette,
+        title: "Framer Motion Animations",
+        description: "Scroll-triggered reveals and hover interactions sitewide",
+      },
+      {
+        icon: Sparkles,
+        title: "Dark Space Theme",
+        description: "Animated particle background in the hero section",
+      },
+      {
+        icon: Layout,
+        title: "Full Site Structure",
+        description: "Services, Portfolio, Resume, Skills, Testimonials",
+      },
+      {
+        icon: Zap,
+        title: "Optimized Routing",
+        description: "Built with Next.js for fast, smooth page performance",
+      },
+    ],
+    media: [
+      {
+        type: "video",
+        src: "/projects/portfolio/portfolio-web.mp4",
+        poster: "/projects/portfolio/thumbnail.png",
+      },
+    ],
+    link: null,
+    codeLink: null,
+  },
+  {
+    id: "vxs",
+    size: "normal",
     title: "VXS — Vehicle Surveillance & Access Control",
     shortTitle: "VXS",
     tagline: "Enterprise vehicle monitoring & access control platform",
@@ -76,7 +317,7 @@ export const PROJECTS = [
   },
   {
     id: "buy4me",
-    size: "tall",
+    size: "normal",
     title: "Buy4Me — Cross-Border E-Commerce Platform",
     shortTitle: "Buy4Me",
     tagline: "Cross-border shopping platform, live in production",
@@ -107,84 +348,6 @@ export const PROJECTS = [
         icon: Zap,
         title: "Zero-Downtime Deploys",
         description: "PM2 cluster mode on VPS with CI/CD automation",
-      },
-    ],
-    media: [],
-    link: null,
-    codeLink: null,
-  },
-  {
-    id: "calldraft",
-    size: "normal",
-    title: "CallDraft — AI Voice Agent",
-    shortTitle: "CallDraft",
-    tagline: "Sub-800ms browser-based AI voice conversations",
-    role: "Sole Developer",
-    type: "Personal Project",
-    icon: Mic,
-    description:
-      "Browser-based AI voice agent for live, natural speech-to-speech conversation with sub-800ms response latency — entirely in the browser, no app install required. Streams microphone audio to OpenAI's Realtime API over WebRTC with ephemeral token authentication, a live transcript, and a response-latency indicator.",
-    categories: ["AI", "Real-Time"],
-    stack: ["Next.js", "TypeScript", "OpenAI Realtime API", "WebRTC"],
-    highlights: [
-      {
-        icon: Zap,
-        title: "Sub-800ms Latency",
-        description: "Fast enough round trip for natural conversation flow",
-      },
-      {
-        icon: Radio,
-        title: "WebRTC Audio Streaming",
-        description: "Mic streams straight to OpenAI's Realtime API",
-      },
-      {
-        icon: KeyRound,
-        title: "Ephemeral Auth",
-        description: "Secure token flow, no API keys exposed to the browser",
-      },
-      {
-        icon: MessageSquare,
-        title: "Live Transcript",
-        description: "Real-time text of both sides of the conversation",
-      },
-    ],
-    media: [],
-    link: null,
-    codeLink: null,
-  },
-  {
-    id: "pm-suite",
-    size: "normal",
-    title: "PM Suite — Project Management Platform",
-    shortTitle: "PM Suite",
-    tagline: "Jira + Notion + Slack, combined into one tool",
-    role: "Full-Stack Developer — Angular focus",
-    type: "Company Project",
-    icon: KanbanSquare,
-    description:
-      "Full-stack project management platform combining Kanban boards, a Notion-style block document editor, integrated real-time team chat, KPI dashboards, and per-task time tracking — with full offline support as a PWA that syncs when connection restores.",
-    categories: ["Full-Stack"],
-    stack: ["Angular", "Deno", "PostgreSQL", "JWT/RBAC", "PWA"],
-    highlights: [
-      {
-        icon: KanbanSquare,
-        title: "Kanban Boards",
-        description: "Drag-and-drop task management with custom columns",
-      },
-      {
-        icon: FileText,
-        title: "Block Document Editor",
-        description: "20+ Notion-style content blocks, tables, embeds",
-      },
-      {
-        icon: MessageCircle,
-        title: "Built-In Team Chat",
-        description: "Real-time messaging with no external tool needed",
-      },
-      {
-        icon: WifiOff,
-        title: "Offline-First PWA",
-        description: "Works offline, syncs automatically on reconnect",
       },
     ],
     media: [],
@@ -227,6 +390,45 @@ export const PROJECTS = [
       },
     ],
     media: [],
+    link: null,
+    codeLink: null,
+  },
+  {
+    id: "ci-cd-jenkins",
+    size: "normal",
+    title: "CI/CD Pipeline — Automated Deployment",
+    shortTitle: "CI/CD Pipeline",
+    tagline: "Zero-touch deploys with health checks and auto-rollback",
+    role: "DevOps / Backend Developer",
+    type: "Company Project",
+    icon: GitBranch,
+    description:
+      "Designed and built a full CI/CD pipeline for a production project management system, automating build, health-check, and deploy for both a Dockerized backend and a static frontend. Jenkins jobs watch each repo's main branch via GitHub webhooks, run the build, verify a health check, and go live — with automatic rollback to the last known-good version on any failure. Hardened the server with a non-root deploy user, key-based SSH, a firewall, and brute-force protection.",
+    categories: ["DevOps", "Backend"],
+    stack: ["Jenkins", "Docker", "Nginx", "GitHub Webhooks"],
+    highlights: [
+      {
+        icon: GitBranch,
+        title: "Auto Deploy on Push",
+        description: "GitHub webhook triggers a build the moment code lands",
+      },
+      {
+        icon: ShieldCheck,
+        title: "Health-Checked Rollouts",
+        description: "Deploy only goes live after passing a health check",
+      },
+      {
+        icon: RefreshCw,
+        title: "Automatic Rollback",
+        description: "Reverts to the last working version on any failure",
+      },
+      {
+        icon: ShieldAlert,
+        title: "Hardened Server Security",
+        description: "Key-based SSH, firewall, and brute-force protection",
+      },
+    ],
+    media: [{ type: "image", src: "/projects/ci-cd-jenkins/image.png" }],
     link: null,
     codeLink: null,
   },
