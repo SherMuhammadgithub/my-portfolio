@@ -42,7 +42,7 @@ export default function Services() {
       <div className="container mx-auto px-4" data-aos="fade-up">
         <div className="row flex flex-wrap my-2">
           <div className="col flex justify-center items-center w-full">
-            <div className="section-header mx-3 w-[100%] max-w-[700px] text-center space-y-4 mb-12">
+            <div className="section-header mx-3 w-[100%] max-w-[700px] text-center space-y-4 mb-8">
               <h2 className="font-bold text-3xl sm:text-4xl md:text-[45px]">
                 My Quality{" "}
                 <span
@@ -70,7 +70,7 @@ export default function Services() {
           </div>
         </div>
 
-        <div className="row flex flex-wrap mx-4 2xl:mx-32 my-6">
+        <div className="row flex flex-wrap mx-4 2xl:mx-32">
           <div className="col w-full space-y-5">
             {SERVICES.map((service, index) => {
               const Icon = service.icon;

@@ -19,6 +19,12 @@ export default function ProjectModal({ project, onClose }) {
   const [activeMedia, setActiveMedia] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const mediaBoxRef = useRef(null);
+  const media = project?.media || [];
+
+  const goPrevMedia = () =>
+    setActiveMedia((i) => (i === 0 ? media.length - 1 : i - 1));
+  const goNextMedia = () =>
+    setActiveMedia((i) => (i === media.length - 1 ? 0 : i + 1));
 
   useEffect(() => {
     setActiveMedia(0);
@@ -34,25 +40,22 @@ export default function ProjectModal({ project, onClose }) {
     document.body.style.overflow = "hidden";
     const handleKeyDown = (e) => {
       if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") goPrevMedia();
+      if (e.key === "ArrowRight") goNextMedia();
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [project, onClose]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [project, onClose, activeMedia, media.length]);
 
   if (!project) return null;
 
   const Icon = project.icon;
-  const media = project.media || [];
   const current = media[activeMedia];
   const isFeatured = project.size === "featured";
-
-  const goPrevMedia = () =>
-    setActiveMedia((i) => (i === 0 ? media.length - 1 : i - 1));
-  const goNextMedia = () =>
-    setActiveMedia((i) => (i === media.length - 1 ? 0 : i + 1));
 
   const toggleFullscreen = () => {
     if (!mediaBoxRef.current) return;
@@ -75,7 +78,7 @@ export default function ProjectModal({ project, onClose }) {
         onClick={onClose}
       ></div>
 
-      <div className="relative w-full max-w-7xl max-h-[90vh] overflow-y-auto rounded-2xl border border-white/10 bg-[#0b0710] text-white shadow-2xl">
+      <div className="relative w-full max-w-7xl max-h-[90vh] overflow-y-auto overscroll-contain rounded-2xl border border-white/10 bg-[#0b0710] text-white shadow-2xl">
         <div className="flex items-center justify-end px-4 py-3 border-b border-white/10 sticky top-0 bg-[#0b0710] z-20">
           <button
             onClick={onClose}
@@ -225,7 +228,7 @@ export default function ProjectModal({ project, onClose }) {
                   onPlay={() => setIsPlaying(true)}
                   onPause={() => setIsPlaying(false)}
                   onEnded={() => setIsPlaying(false)}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 >
                   <source src={current.src} />
                 </video>
@@ -233,7 +236,7 @@ export default function ProjectModal({ project, onClose }) {
                 <img
                   src={current.src}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               ) : (
                 <div
