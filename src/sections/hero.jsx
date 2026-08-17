@@ -137,7 +137,7 @@ export default function Hero() {
             </div>
 
             <p className="max-w-[550px] w-full text-lg lg:text-[20px] text-white/80">
-              Full-stack developer with 2+ years of production experience —
+              Full-stack developer with 3 years of production experience —
               building everything from enterprise vehicle surveillance
               systems and AI voice agents to e-commerce platforms.
             </p>
