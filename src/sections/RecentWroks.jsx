@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectModal from "@/components/ProjectModal";
+import SectionWave from "@/components/SectionWave";
 import { PROJECTS, PROJECT_CATEGORIES } from "@/data/projects";
 
 export default function RecentWorks() {
@@ -17,12 +18,12 @@ export default function RecentWorks() {
   const filteredProjects =
     activeCategory === "All"
       ? PROJECTS
-      : PROJECTS.filter((p) => p.categories.includes(activeCategory));
+      : PROJECTS.filter((project) => project.categories.includes(activeCategory));
 
   return (
     <div
       id="portfolio"
-      className="relative flex justify-center w-full py-4 md:py-16 overflow-hidden bg-[#110818]"
+      className="section-with-wave relative flex justify-center w-full py-4 md:py-16 overflow-hidden bg-[#110818]"
     >
       <span
         className="absolute top-1/2 right-[41%] w-[322px] h-[322px] rounded-full pointer-events-none z-0"
@@ -36,7 +37,7 @@ export default function RecentWorks() {
         {/* Header */}
         <div className="section-header mx-auto w-full max-w-[700px] text-center space-y-4 mb-12">
           <h2 className="font-bold text-3xl sm:text-4xl md:text-[45px] text-white">
-            My Quality{" "}
+            Projects{" "}
             <span
               style={{
                 background: "linear-gradient(135deg, #a78bfa 0%, #693dc3 100%)",
@@ -45,7 +46,7 @@ export default function RecentWorks() {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              Work
+              Portfolio
             </span>
           </h2>
           <div className="flex items-center justify-center gap-3">
@@ -54,19 +55,14 @@ export default function RecentWorks() {
             <span className="h-px w-12 bg-[#693dc3]/50"></span>
           </div>
           <p className="text-base md:text-lg text-white/70">
-            Every project I create is a unique piece, crafted to bring your
-            vision to life with innovative design and technology.
+            A selection of production work, experiments, and digital products
+            built with thoughtful design and modern technology.
           </p>
         </div>
 
-        {/* Filter tabs */}
+        {/* Centered category filters */}
         <div className="flex justify-center mb-10">
-          <div
-            className="inline-flex flex-wrap justify-center gap-1 p-1.5 rounded-2xl sm:rounded-full bg-[#0b0710] border border-[#8c56fb]/25"
-            style={{
-              boxShadow: "0 0 40px -12px rgba(140, 86, 251, 0.35)",
-            }}
-          >
+          <div className="inline-flex flex-wrap justify-center gap-1 p-1.5 rounded-2xl sm:rounded-full bg-[#0b0710] border border-[#8c56fb]/25">
             {PROJECT_CATEGORIES.map((category) => (
               <button
                 key={category}
@@ -93,21 +89,24 @@ export default function RecentWorks() {
         </div>
 
         {/* Bento grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 z-10">
-          {filteredProjects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              onOpen={setSelectedProject}
-            />
-          ))}
-        </div>
+        {filteredProjects.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 z-10">
+            {filteredProjects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                onOpen={setSelectedProject}
+              />
+            ))}
+          </div>
+        ) : null}
       </div>
 
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
       />
+      <SectionWave variant="dark" />
     </div>
   );
 }

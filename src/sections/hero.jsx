@@ -6,6 +6,7 @@ import { FaFacebookSquare, FaLinkedin, FaGithubSquare } from "react-icons/fa";
 import { Download, Code2, Briefcase, Users, Layers } from "lucide-react";
 import { useEffect, useRef } from "react";
 import "./hero.css";
+import SectionWave from "@/components/SectionWave";
 
 const SOCIAL_LINKS = [
   {
@@ -102,22 +103,24 @@ export default function Hero() {
   return (
     <main
       id="home"
-      className={`hero-section flex flex-col justify-center items-center bg-[#030313fc] text-white relative z-10 h-auto p-8 md:p-16 xl:p-24 overflow-hidden`}
+      className={`hero-section flex flex-col justify-center items-center bg-[#030313fc] text-white relative z-10 h-auto p-6 md:p-12 xl:p-16 overflow-hidden`}
     >
       <span id="page-intro"></span>
       {/* content */}
-      <div className="flex flex-wrap items-center w-full max-w-6xl mx-auto mt-20 gap-x-16 lg:gap-x-28 gap-y-12">
+      <div className="flex flex-wrap items-center w-full max-w-6xl mx-auto mt-16 md:mt-12 gap-x-16 lg:gap-x-28 gap-y-10">
         <div className="col-1 flex flex-col justify-center items-center w-full md:flex-1 md:min-w-0">
           <div className="hero-content space-y-4 w-full">
             <div className="space-y-1">
-              <span className="block text-xl lg:text-2xl font-semibold font-[Playball] tracking-widest text-[#a78bfa]">
+              <span className="block text-xl lg:text-2xl font-semibold  tracking-widest text-[#a78bfa]">
                 Sher Muhammad
               </span>
-              <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl text-white">
+              <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl leading-tight text-white">
                 Full-Stack Developer
                 <br />
                 <span className="text-[#8c56fb]">+</span>{" "}
-                <span className="text-[#a78bfa]">Real-Time Systems</span>
+                <span className="text-[#a78bfa]">
+                  AI, RAG & Real-Time Systems
+                </span>
               </h1>
             </div>
 
@@ -137,16 +140,16 @@ export default function Hero() {
             </div>
 
             <p className="max-w-[550px] w-full text-lg lg:text-[20px] text-white/80">
-              Full-stack developer with 3 years of production experience —
-              building everything from enterprise vehicle surveillance
-              systems and AI voice agents to e-commerce platforms.
+              Full-stack developer with 2+ years of production experience,
+              building web apps, real-time systems, AI voice agents, and
+              e-commerce platforms.
             </p>
 
             <div className="button-box pt-2 flex justify-center md:justify-start flex-wrap items-center gap-6 md:gap-10">
               <a
                 href={resume}
                 download="Sher_Muhammad_Resume.pdf"
-                className="inline-flex items-center justify-center gap-2 w-full md:w-56 border border-[#693dc3] bg-[#693dc3] rounded-xl text-white py-3 px-6 text-sm md:text-lg hover:bg-transparent transition-all duration-500 ease-in-out hover:text-[#693dc3]"
+                className="button-text inline-flex items-center justify-center gap-2 w-full md:w-56 border border-[#693dc3] bg-[#693dc3] rounded-xl text-white py-3 px-6 text-sm md:text-lg hover:bg-transparent transition-all duration-500 ease-in-out hover:text-[#693dc3]"
               >
                 <Download className="w-4 h-4" />
                 Download CV
@@ -186,7 +189,7 @@ export default function Hero() {
       </div>
 
       {/* Stats row: full width, below both columns */}
-      <div className="w-full max-w-6xl mt-12 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-5 md:px-8 md:py-6">
+      <div className="w-full max-w-6xl mt-10 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-5 md:px-8 md:py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x md:divide-white/10">
           {STATS.map((stat, index) => {
             const Icon = stat.icon;
@@ -211,6 +214,8 @@ export default function Hero() {
           })}
         </div>
       </div>
+
+      <SectionWave variant="dark" />
 
       <canvas
         ref={canvasRef}

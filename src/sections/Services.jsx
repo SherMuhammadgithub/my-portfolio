@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Layers, Radio, Sparkles, ArrowRight } from "lucide-react";
+import SectionWave from "@/components/SectionWave";
 
 const SERVICES = [
   {
@@ -37,7 +38,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="py-4 md:py-16 bg-[#050709] text-white flex justify-center items-center overflow-hidden"
+      className="section-with-wave relative py-4 md:py-16 bg-[#050709] text-white flex justify-center items-center overflow-hidden"
     >
       <div className="container mx-auto px-4" data-aos="fade-up">
         <div className="row flex flex-wrap my-2">
@@ -146,6 +147,7 @@ export default function Services() {
           </div>
         </div>
       </div>
+      <SectionWave variant="purple" />
     </section>
   );
 }

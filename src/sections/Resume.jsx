@@ -15,6 +15,7 @@ import {
   Download,
   ArrowRight,
 } from "lucide-react";
+import SectionWave from "@/components/SectionWave";
 
 const EXPERIENCE = [
   {
@@ -110,7 +111,7 @@ export default function Resume() {
   return (
     <section
       id="Resume"
-      className="bg-[#050709] text-white py-4 md:py-16 overflow-hidden"
+      className="section-with-wave relative bg-[#050709] text-white py-4 md:py-16 overflow-hidden"
     >
       <div className="container mx-auto px-4" data-aos="fade-up">
         <div className="text-center max-w-[700px] mx-auto space-y-4 mb-12">
@@ -164,6 +165,7 @@ export default function Resume() {
           </a>
         </div>
       </div>
+      <SectionWave variant="purple" />
     </section>
   );
 }

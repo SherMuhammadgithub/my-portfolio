@@ -1,9 +1,16 @@
-import { Poppins } from "next/font/google";
+import { Raleway, Titillium_Web } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
+const raleway = Raleway({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-raleway",
+});
+
+const titilliumWeb = Titillium_Web({
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+  variable: "--font-titillium",
 });
 
 export const metadata = {
@@ -31,7 +38,9 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className={poppins.className}>{children}</body>
+      <body className={`${raleway.variable} ${titilliumWeb.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }

@@ -14,6 +14,7 @@ import {
   SiPostgresql,
   SiTailwindcss,
 } from "react-icons/si";
+import SectionWave from "@/components/SectionWave";
 
 // Pulled from the "Expert" tier of the actual resume — percent reflects that
 // self-reported tier (90%), not per-skill fine-tuning I can't back up.
@@ -118,7 +119,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="bg-[#110818] text-white py-4 md:py-16 overflow-hidden"
+      className="section-with-wave relative bg-[#110818] text-white py-4 md:py-16 overflow-hidden"
     >
       <div className="container mx-auto px-4" data-aos="fade-up">
         <div className="text-center max-w-[700px] mx-auto space-y-4 mb-12">
@@ -202,6 +203,7 @@ export default function Skills() {
           </Link>
         </div>
       </div>
+      <SectionWave variant="dark" />
     </section>
   );
 }
