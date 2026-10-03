@@ -11,6 +11,7 @@ const SERVICES = [
     title: "Full-Stack Development",
     description:
       "End-to-end web apps with Angular, React, or Next.js on the frontend and NestJS or Node.js backends, backed by PostgreSQL — built, tested, and deployed.",
+    details: "Frontend interfaces, backend APIs, database design, authentication, testing, and deployment.",
     icon: Layers,
   },
   {
@@ -18,6 +19,7 @@ const SERVICES = [
     title: "Real-Time & Backend Systems",
     description:
       "Live streaming pipelines, WebSocket gateways, and distributed backends — the kind of infrastructure behind vehicle surveillance platforms and real-time billing engines.",
+    details: "WebRTC and FFmpeg pipelines, WebSocket events, session monitoring, and fault-tolerant services.",
     icon: Radio,
   },
   {
@@ -25,6 +27,7 @@ const SERVICES = [
     title: "AI Integration",
     description:
       "AI voice agents, RAG chat pipelines, and semantic search — wiring OpenAI's Realtime API, LangChain, and vector databases into real products.",
+    details: "Voice interfaces, document retrieval, embeddings, vector search, and production AI workflows.",
     icon: Sparkles,
   },
 ];
@@ -79,9 +82,16 @@ export default function Services() {
               return (
                 <div
                   key={service.count}
-                  onMouseEnter={() => setActiveIndex(index)}
-                  onMouseLeave={() => setActiveIndex(null)}
-                  className={`flex flex-col sm:flex-row rounded-2xl border overflow-hidden cursor-pointer transition-all duration-300 ${
+                  onClick={() => setActiveIndex(isActive ? null : index)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      setActiveIndex(isActive ? null : index);
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                  className={`flex flex-col sm:flex-row rounded-2xl border overflow-hidden cursor-pointer transition-all duration-300 hover:border-[#8c56fb]/70 hover:shadow-lg hover:shadow-[#693dc3]/20 ${
                     isActive
                       ? "border-[#8c56fb] shadow-lg shadow-[#693dc3]/30"
                       : "border-white/10"
@@ -124,21 +134,42 @@ export default function Services() {
                         <h3 className="text-lg md:text-2xl font-bold text-white">
                           {service.title}
                         </h3>
-                        <p className="text-sm md:text-base text-white/70 mt-1 max-w-md">
+                        <p className="lowercase text-sm md:text-base text-white/70 mt-1 max-w-md">
                           {service.description}
                         </p>
+                        <div
+                          className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                            isActive ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                          }`}
+                        >
+                          <div className="overflow-hidden">
+                            <p className="lowercase mt-3 max-w-xl border-t border-white/15 pt-3 text-sm text-white/80">
+                              {service.details}
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
 
                     <button
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        setActiveIndex(isActive ? null : index);
+                      }}
                       aria-label={`Learn more about ${service.title}`}
+                      aria-expanded={isActive}
                       className={`w-10 h-10 md:w-12 md:h-12 shrink-0 rounded-full flex items-center justify-center transition-colors duration-300 self-end md:self-center ${
                         isActive
                           ? "bg-[#a78bfa] text-white"
                           : "bg-white/5 border border-white/10 text-white/70"
                       }`}
                     >
-                      <ArrowRight className="w-5 h-5" />
+                      <ArrowRight
+                        className={`w-5 h-5 transition-transform duration-300 ${
+                          isActive ? "rotate-90" : ""
+                        }`}
+                      />
                     </button>
                   </div>
                 </div>
