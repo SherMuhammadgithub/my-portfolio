@@ -20,13 +20,13 @@ import SectionWave from "@/components/SectionWave";
 const EXPERIENCE = [
   {
     period: "Mar 2025 – Present",
-    title: "Associate JavaScript Developer",
+    title: "Full-Stack Developer",
     company: "HS Technologies, Lahore",
     icon: Server,
   },
   {
     period: "Sep 2024 – Apr 2025",
-    title: "Associate Angular Developer",
+    title: "Angular Developer",
     company: "Texel Technologies, Lahore",
     icon: MessageSquare,
   },
@@ -103,6 +103,45 @@ function TimelineColumn({ headerIcon: HeaderIcon, headerLabel, accent, items }) 
   );
 }
 
+function WorkJourney({ items }) {
+  return (
+    <div className="relative">
+      <div className="absolute bottom-0 left-8 top-0 w-0.5 bg-[#8c56fb]/50 lg:bottom-auto lg:left-[8%] lg:right-[8%] lg:top-1/2 lg:h-1 lg:w-auto lg:-translate-y-1/2" />
+      <div className="grid gap-4 lg:grid-cols-3 lg:gap-0">
+        {items.map((item, index) => {
+          const Icon = item.icon;
+          const isUpper = index % 2 === 0;
+
+          return (
+            <div
+              key={item.title}
+              className={`relative flex min-h-[150px] items-center pl-20 lg:min-h-[270px] lg:pl-0 ${
+                isUpper
+                  ? "lg:items-start lg:pt-5"
+                  : "lg:items-end lg:pb-5"
+              }`}
+            >
+              <span className="absolute left-0 top-1/2 z-10 flex h-16 w-16 -translate-y-1/2 items-center justify-center rounded-full border-4 border-[#050709] bg-[#693dc3] text-[#e9ddff] shadow-[0_0_18px_4px_rgba(140,86,251,0.4)] lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2">
+                <Icon className="h-7 w-7" />
+              </span>
+
+              <div className="w-full space-y-1 lg:w-[78%]">
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#a78bfa]">
+                  {item.period}
+                </p>
+                <h3 className="text-base font-bold text-white md:text-lg">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-white/60">{item.company}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export default function Resume() {
   useEffect(() => {
     AOS.init({ duration: 800 });
@@ -140,17 +179,32 @@ export default function Resume() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
-          <TimelineColumn
-            headerIcon={Trophy}
-            headerLabel="Experience"
-            items={EXPERIENCE}
-          />
-          <TimelineColumn
-            headerIcon={Library}
-            headerLabel="Education"
-            items={EDUCATION}
-          />
+        <div className="mx-auto max-w-6xl space-y-14">
+          <div className="space-y-6">
+            <div className="flex items-center gap-4">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#8c56fb]/40 bg-[#693dc3]/15">
+                <Trophy className="h-5 w-5 text-[#a78bfa]" />
+              </div>
+              <h3 className="text-2xl font-bold md:text-3xl">
+                Work <span className="text-[#a78bfa]">Journey</span>
+              </h3>
+              <span className="h-px flex-1 bg-gradient-to-r from-[#8c56fb]/60 to-transparent" />
+            </div>
+            <WorkJourney items={EXPERIENCE} />
+          </div>
+
+          <div className="space-y-6">
+            <div className="flex items-center gap-4">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#8c56fb]/40 bg-[#693dc3]/15">
+                <Library className="h-5 w-5 text-[#a78bfa]" />
+              </div>
+              <h3 className="text-2xl font-bold md:text-3xl">
+                Education <span className="text-[#a78bfa]">Journey</span>
+              </h3>
+              <span className="h-px flex-1 bg-gradient-to-r from-[#8c56fb]/60 to-transparent" />
+            </div>
+            <WorkJourney items={EDUCATION} />
+          </div>
         </div>
 
         <div className="flex justify-center mt-12">

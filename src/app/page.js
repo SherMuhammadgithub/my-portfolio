@@ -13,13 +13,22 @@ import Loader from "@/components/Loader";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    // Simulate a delay for demonstration purposes
+    const navigation = performance.getEntriesByType("navigation")[0];
+    const hasVisitedHome = sessionStorage.getItem("portfolio-home-visited");
+    const shouldShowLoader = navigation?.type === "reload" || !hasVisitedHome;
+
+    sessionStorage.setItem("portfolio-home-visited", "true");
+
+    if (!shouldShowLoader) return;
+
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1000); // You can adjust the delay as needed
+    }, 1000);
+
+    setIsLoading(true);
 
     return () => clearTimeout(timer);
   }, []);

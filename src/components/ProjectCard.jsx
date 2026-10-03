@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { Play, Lock, ArrowRight } from "lucide-react";
 import { getTechColor, getTechIcon } from "@/lib/techIcons";
 
@@ -8,7 +9,8 @@ const SIZE_CLASSES = {
   normal: "min-h-[360px]",
 };
 
-export default function ProjectCard({ project, onOpen }) {
+export default function ProjectCard({ project }) {
+  const router = useRouter();
   const Icon = project.icon;
   const thumbnail = project.media?.[0];
   const isVideo = thumbnail?.type === "video";
@@ -16,10 +18,10 @@ export default function ProjectCard({ project, onOpen }) {
 
   return (
     <div
-      onClick={() => onOpen(project)}
+      onClick={() => router.push(`/projects/${project.id}`)}
       role="button"
       tabIndex={0}
-      onKeyDown={(e) => e.key === "Enter" && onOpen(project)}
+      onKeyDown={(e) => e.key === "Enter" && router.push(`/projects/${project.id}`)}
       className={`group flex flex-col rounded-2xl overflow-hidden border border-white/10 bg-[#0b0710] cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-[#8c56fb]/60 hover:shadow-xl hover:shadow-[#693dc3]/15 ${SIZE_CLASSES[project.size] || SIZE_CLASSES.normal}`}
     >
       {/* Project image */}
@@ -102,7 +104,7 @@ export default function ProjectCard({ project, onOpen }) {
         <button
           onClick={(e) => {
             e.stopPropagation();
-            onOpen(project);
+            router.push(`/projects/${project.id}`);
           }}
           className="mt-auto inline-flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold text-white transition-transform hover:scale-[1.02]"
           style={{

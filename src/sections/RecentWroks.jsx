@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ProjectCard from "@/components/ProjectCard";
-import ProjectModal from "@/components/ProjectModal";
 import SectionWave from "@/components/SectionWave";
 import { PROJECTS, PROJECT_CATEGORIES } from "@/data/projects";
 
@@ -13,7 +12,6 @@ export default function RecentWorks() {
   }, []);
 
   const [activeCategory, setActiveCategory] = useState("All");
-  const [selectedProject, setSelectedProject] = useState(null);
 
   const filteredProjects =
     activeCategory === "All"
@@ -95,17 +93,12 @@ export default function RecentWorks() {
               <ProjectCard
                 key={project.id}
                 project={project}
-                onOpen={setSelectedProject}
               />
             ))}
           </div>
         ) : null}
       </div>
 
-      <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
       <SectionWave variant="dark" />
     </div>
   );

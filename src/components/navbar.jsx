@@ -52,7 +52,7 @@ export default function Navbar() {
             className="flex items-center gap-3 cursor-pointer shrink-0"
           >
             <span
-              className="text-3xl md:text-4xl font-black italic leading-none tracking-tight shrink-0"
+              className="inline-flex min-w-[3.25rem] items-center justify-center text-3xl md:text-4xl font-black leading-normal tracking-tight shrink-0"
               style={{
                 background: "linear-gradient(135deg, #a78bfa 0%, #693dc3 100%)",
                 WebkitBackgroundClip: "text",
@@ -61,9 +61,6 @@ export default function Navbar() {
               }}
             >
               SM
-            </span>
-            <span className="text-lg md:text-xl font-bold whitespace-nowrap hidden sm:block">
-              Sher Muhammad
             </span>
           </ScrollLink>
         ) : (
@@ -72,7 +69,7 @@ export default function Navbar() {
             className="flex items-center gap-3 cursor-pointer shrink-0"
           >
             <span
-              className="text-3xl md:text-4xl font-black italic leading-none tracking-tight shrink-0"
+              className="inline-flex min-w-[3.25rem] items-center justify-center text-3xl md:text-4xl font-black leading-normal tracking-tight shrink-0"
               style={{
                 background: "linear-gradient(135deg, #a78bfa 0%, #693dc3 100%)",
                 WebkitBackgroundClip: "text",
@@ -81,9 +78,6 @@ export default function Navbar() {
               }}
             >
               SM
-            </span>
-            <span className="text-lg md:text-xl font-bold whitespace-nowrap hidden sm:block">
-              Sher Muhammad
             </span>
           </NextLink>
         )}

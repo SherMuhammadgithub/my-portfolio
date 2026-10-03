@@ -1,5 +1,6 @@
 import {
   SiAngular,
+  SiAstro,
   SiDeno,
   SiDocker,
   SiExpress,
@@ -22,12 +23,15 @@ import {
   SiSocketdotio,
   SiStripe,
   SiTailwindcss,
+  SiTencentqq,
   SiTypescript,
+  SiVite,
   SiWebrtc,
 } from "react-icons/si";
 import { Layers } from "lucide-react";
 
 const KEYWORD_ICON_MAP = [
+  { match: /astro/i, icon: SiAstro },
   { match: /next/i, icon: SiNextdotjs },
   { match: /angular/i, icon: SiAngular },
   { match: /react/i, icon: SiReact },
@@ -48,6 +52,8 @@ const KEYWORD_ICON_MAP = [
   { match: /jwt/i, icon: SiJsonwebtokens },
   { match: /typescript/i, icon: SiTypescript },
   { match: /tailwind/i, icon: SiTailwindcss },
+  { match: /vite/i, icon: SiVite },
+  { match: /tencent|cos/i, icon: SiTencentqq },
   { match: /framer/i, icon: SiFramer },
   { match: /fastapi/i, icon: SiFastapi },
   { match: /mongo/i, icon: SiMongodb },
@@ -56,6 +62,7 @@ const KEYWORD_ICON_MAP = [
 ];
 
 const TECH_COLOR_MAP = [
+  { match: /astro/i, color: "#ff5d01" },
   { match: /next/i, color: "#ffffff" },
   { match: /angular/i, color: "#dd0031" },
   { match: /react/i, color: "#61dafb" },
@@ -76,6 +83,8 @@ const TECH_COLOR_MAP = [
   { match: /jwt/i, color: "#d63aff" },
   { match: /typescript/i, color: "#3178c6" },
   { match: /tailwind/i, color: "#38bdf8" },
+  { match: /vite/i, color: "#646cff" },
+  { match: /tencent|cos/i, color: "#2f7cff" },
   { match: /framer/i, color: "#ffffff" },
   { match: /fastapi/i, color: "#009688" },
   { match: /mongo/i, color: "#47a248" },
