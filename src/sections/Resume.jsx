@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import resume from "/public/Sher_Muhammad_Resume.pdf";
+const resume = "/Sher_Muhammad_Iqbal_Resume.pdf";
 import {
   Trophy,
   Library,
@@ -210,7 +210,7 @@ export default function Resume() {
         <div className="flex justify-center mt-12">
           <a
             href={resume}
-            download="Sher_Muhammad_Resume.pdf"
+            download="Sher-Muhammad-Iqbal-Resume.pdf"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold border border-[#8c56fb]/50 hover:bg-white/5 transition-colors"
           >
             <Download className="w-4 h-4" />

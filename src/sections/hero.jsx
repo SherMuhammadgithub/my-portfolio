@@ -1,6 +1,6 @@
 "use client";
 import heroImage from "/public/hero.png";
-import resume from "/public/Sher_Muhammad_Resume.pdf";
+const resume = "/Sher_Muhammad_Iqbal_Resume.pdf";
 import Image from "next/image";
 import { FaFacebookSquare, FaLinkedin, FaGithubSquare } from "react-icons/fa";
 import { Download, Code2, Briefcase, Users, Layers } from "lucide-react";
@@ -148,7 +148,7 @@ export default function Hero() {
             <div className="button-box pt-2 flex justify-center md:justify-start flex-wrap items-center gap-6 md:gap-10">
               <a
                 href={resume}
-                download="Sher_Muhammad_Resume.pdf"
+                download="Sher-Muhammad-Iqbal-Resume.pdf"
                 className="button-text inline-flex items-center justify-center gap-2 w-full md:w-56 border border-[#693dc3] bg-[#693dc3] rounded-xl text-white py-3 px-6 text-sm md:text-lg hover:bg-transparent transition-all duration-500 ease-in-out hover:text-[#693dc3]"
               >
                 <Download className="w-4 h-4" />
