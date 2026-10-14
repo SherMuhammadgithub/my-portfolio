@@ -6,6 +6,24 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Intro loader gate for the home page. The overlay is hidden unless the
+   pre-paint script in layout.js stamped "pending" on <html> for this document
+   load; page.js owns the attribute from there ("done" when the loader ends).
+   Without JS the attribute never exists and the content shows. */
+[data-portfolio-loader-overlay] {
+  display: none !important;
+}
+
+html[data-portfolio-loader="pending"] [data-portfolio-loader-overlay] {
+  display: flex !important;
+}
+
+/* Hold the page still for the second the loader is up, and only while that
+   overlay is actually in the document so no other route can stay locked. */
+html[data-portfolio-loader="pending"]:has([data-portfolio-loader-overlay]) {
+  overflow: hidden;
+}
+
 body {
   font-family: var(--font-raleway), sans-serif;
 }

@@ -111,7 +111,7 @@ export default function Hero() {
         <div className="col-1 flex flex-col justify-center items-center w-full md:flex-1 md:min-w-0">
           <div className="hero-content space-y-4 w-full">
             <div className="space-y-1">
-              <span className="block text-xl lg:text-2xl font-semibold  tracking-widest text-[#a78bfa]">
+              <span className="block uppercase text-xl lg:text-2xl font-semibold  tracking-widest text-[#a78bfa]">
                 Sher Muhammad
               </span>
               <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl leading-tight text-white">

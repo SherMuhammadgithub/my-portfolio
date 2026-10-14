@@ -12,23 +12,30 @@ import Footer from "@/components/Footer";
 import Loader from "@/components/Loader";
 import { useEffect, useState } from "react";
 
+// Set in <head> by layout.js before the first paint: "pending" means this
+// document load shows the loader, anything else means it is already over.
+const LOADER_ATTR = "data-portfolio-loader";
+const LOADER_DURATION = 1000;
+
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(false);
+  // Starts true so the loader overlay — not the content — is what ends up in
+  // the prerendered HTML and in the first paint.
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const navigation = performance.getEntriesByType("navigation")[0];
-    const hasVisitedHome = sessionStorage.getItem("portfolio-home-visited");
-    const shouldShowLoader = navigation?.type === "reload" || !hasVisitedHome;
+    const root = document.documentElement;
 
-    sessionStorage.setItem("portfolio-home-visited", "true");
-
-    if (!shouldShowLoader) return;
+    // Read-only check, so React StrictMode's second effect run behaves the same
+    // as the first instead of short-circuiting on state it just wrote.
+    if (root.getAttribute(LOADER_ATTR) !== "pending") {
+      setIsLoading(false);
+      return;
+    }
 
     const timer = setTimeout(() => {
+      root.setAttribute(LOADER_ATTR, "done");
       setIsLoading(false);
-    }, 1000);
-
-    setIsLoading(true);
+    }, LOADER_DURATION);
 
     return () => clearTimeout(timer);
   }, []);
@@ -46,22 +53,25 @@ export default function Home() {
   }, [isLoading]);
   return (
     <>
-      {isLoading ? (
-        <div className="fixed inset-0 flex justify-center items-center bg-black z-50">
+      {isLoading && (
+        <div
+          data-portfolio-loader-overlay
+          className="fixed inset-0 flex justify-center items-center bg-black z-[60]"
+        >
           <Loader />
         </div>
-      ) : (
-        <>
-          <Navbar />
-          <Hero />
-          <Services />
-          <RecentWroks />
-          <Resume />
-          <Skills />
-          {/* <Testimonials /> */}
-          <Footer />
-        </>
       )}
+      {/* Kept mounted while the loader is up: unmounting it collapsed the
+          document to viewport height and the browser clamped the scroll
+          position back to the top. */}
+      <Navbar />
+      <Hero />
+      <Services />
+      <RecentWroks />
+      <Resume />
+      <Skills />
+      {/* <Testimonials /> */}
+      <Footer />
     </>
   );
 }
